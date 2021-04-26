@@ -1,9 +1,12 @@
 import { NuxtAxiosInstance } from "@nuxtjs/axios";
+import { inject, injectable } from "inversify";
+import { SYMBOLS } from "../core/SYMBOLS";
 import { IUserRepository } from "./types/IUserRepository";
 
+@injectable()
 export default class UserRepository implements IUserRepository {
     constructor(
-        private axios: NuxtAxiosInstance
+        @inject(SYMBOLS.UserRepository) private axios: NuxtAxiosInstance
     ) { }
 
     async login(email: string, password: string): Promise<string>{
