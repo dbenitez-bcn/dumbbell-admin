@@ -6,15 +6,30 @@ describe("UserRepository", () => {
         $post: jest.fn()
     };
     const sut = new UserRepository(axios as unknown as NuxtAxiosInstance);
-    it("should call api", async () => {
-        axios.$post.mockResolvedValue({
-            data: {
-                token: "token"
-            }
+    beforeEach(() => {
+        jest.clearAllMocks();
+        jest.clearAllTimers();
+    })
+    
+    describe("login", () => {
+        it("should call api", async () => {
+            axios.$post.mockResolvedValue({
+                data: {
+                    token: "token"
+                }
+            })
+            const got = await sut.login("email", "password");
+    
+            expect(got).toBe("token");
+            expect(axios.$post).toHaveBeenCalledWith("http://localhost:8080/login", {email: "email", password: "password"});
         })
-        const got = await sut.login("email", "password");
+    })
 
-        expect(got).toBe("token");
-        expect(axios.$post).toHaveBeenCalledWith("http://localhost:8080/login", {email: "email", password: "password"});
+    describe("register", () => {
+        it("should call api", async () => {
+            await sut.register("email", "password");
+    
+            expect(axios.$post).toHaveBeenCalledWith("http://localhost:8080/register", {email: "email", password: "password"});
+        })
     })
 })

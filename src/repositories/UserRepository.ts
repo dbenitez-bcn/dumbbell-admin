@@ -11,4 +11,8 @@ export default class UserRepository implements IUserRepository {
         return response.data.token;
     }
 
+    async register(email: string, password: string): Promise<void>{
+        await this.axios.$post("http://localhost:8080/register", {email, password});
+    }
+
 }
