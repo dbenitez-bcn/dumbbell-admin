@@ -7,6 +7,7 @@ import { IUserRepository } from "~/src/repositories/types/IUserRepository";
 import { FakeUserRepository } from "~/src/repositories/__mocks__/UserRepository";
 import { SessionStore } from './session';
 import SessionDTO from './types/SessionDTO';
+import Constants from '~/src/core/Constants';
 
 describe("Session store", () => {
     let sut: SessionStore;
@@ -49,12 +50,31 @@ describe("Session store", () => {
         expect(sut.isLogged).toBeTruthy();
     })
 
+    it('should store token when login', async () => {
+        repository.login.mockResolvedValue("token");
+        const dto = new SessionDTO("email", "password");
+        Storage.prototype.setItem = jest.fn();
+
+        await sut.login(dto);
+
+        expect(Storage.prototype.setItem).toBeCalledWith(Constants.storage.TOKEN_KEY, "token");
+    })
+
     it("should call repository when register", async () => {
         const dto = new SessionDTO("email", "password");
 
         await sut.register(dto);
 
         expect(repository.register).toBeCalledWith("email", "password");
+    })
+
+    it('should remove token when logout', () => {
+        Storage.prototype.removeItem = jest.fn();
+
+        sut.logout();
+
+        expect(sut.isLogged).toBeFalsy();
+        expect(Storage.prototype.removeItem).toBeCalledWith(Constants.storage.TOKEN_KEY);
     })
 
 })

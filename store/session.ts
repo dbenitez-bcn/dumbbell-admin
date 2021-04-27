@@ -1,4 +1,5 @@
 import { Module, VuexModule, Action, Mutation } from "vuex-module-decorators";
+import Constants from "~/src/core/Constants";
 import { lazyInject } from "~/src/core/Container";
 import { SYMBOLS } from "~/src/core/SYMBOLS";
 import { IUserRepository } from "~/src/repositories/types/IUserRepository";
@@ -26,11 +27,19 @@ export class SessionStore extends VuexModule {
 
     @Action
     async login(dto: ISessionDTO) {
-        this.setToken(await this.repository.login(dto.email, dto.password));
+        const token = await this.repository.login(dto.email, dto.password);
+        this.setToken(token);
+        localStorage.setItem(Constants.storage.TOKEN_KEY, token);
     }
 
     @Action
     async register(dto: ISessionDTO) {
         await this.repository.register(dto.email, dto.password);
+    }
+
+    @Action
+    async logout() {
+        localStorage.removeItem(Constants.storage.TOKEN_KEY);
+        this.setToken('');
     }
 }
