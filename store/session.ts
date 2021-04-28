@@ -3,14 +3,14 @@ import Constants from "~/src/core/Constants";
 import { lazyInject } from "~/src/core/Container";
 import { SYMBOLS } from "~/src/core/SYMBOLS";
 import { IUserRepository } from "~/src/repositories/types/IUserRepository";
-import ISessionDTO from "./types/SessionDTO";
+import SessionDTO from "../models/types/SessionDTO";
 
 @Module({
-    name: "session",
+    name: 'session',
     namespaced: true,
-    stateFactory: true
+    stateFactory: true,
 })
-export class SessionStore extends VuexModule {
+export default class SessionStore extends VuexModule {
 
     @lazyInject(SYMBOLS.UserRepository) repository!: IUserRepository
 
@@ -26,15 +26,15 @@ export class SessionStore extends VuexModule {
     }
 
     @Action
-    async login(dto: ISessionDTO) {
+    async login(dto: SessionDTO) {
         const token = await this.repository.login(dto.email, dto.password);
         this.setToken(token);
         localStorage.setItem(Constants.storage.TOKEN_KEY, token);
     }
 
-    @Action
-    async register(dto: ISessionDTO) {
-        await this.repository.register(dto.email, dto.password);
+    @Action({ rawError: true })
+    async register(dto: SessionDTO) {
+            await this.repository.register(dto.email, dto.password);
     }
 
     @Action
