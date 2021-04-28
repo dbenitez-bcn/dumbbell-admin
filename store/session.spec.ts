@@ -43,6 +43,7 @@ describe("Session store", () => {
     })
 
     it("should update token when login", async () => {
+        repository.login.mockResolvedValue("token");
         const dto = new SessionDTO("email", "password");
 
         await sut.login(dto);

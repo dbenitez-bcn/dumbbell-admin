@@ -5,8 +5,6 @@ import SessionStore from "~/store/session";
 
 export default function ({ store }: Context) {
     if (process.client) {
-        const token = localStorage.getItem(Constants.storage.TOKEN_KEY) || "";
-
-        getModule(SessionStore, store).setToken(token);
+        getModule(SessionStore, store).setToken(localStorage.getItem(Constants.storage.TOKEN_KEY));
     }
 }

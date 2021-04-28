@@ -14,14 +14,14 @@ export default class SessionStore extends VuexModule {
 
     @lazyInject(SYMBOLS.UserRepository) repository!: IUserRepository
 
-    private token: string = '';
+    private token: string | null | undefined;
 
     get isLogged(): boolean {
-        return this.token !== '';
+        return !!this.token;
     }
 
     @Mutation
-    setToken(token: string) {
+    setToken(token: string | null) {
         this.token = token;
     }
 
@@ -40,6 +40,6 @@ export default class SessionStore extends VuexModule {
     @Action
     async logout() {
         localStorage.removeItem(Constants.storage.TOKEN_KEY);
-        this.setToken('');
+        this.setToken(null);
     }
 }
