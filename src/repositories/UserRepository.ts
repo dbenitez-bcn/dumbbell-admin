@@ -6,7 +6,7 @@ import { IUserRepository } from "./types/IUserRepository";
 @injectable()
 export default class UserRepository implements IUserRepository {
     constructor(
-        @inject(SYMBOLS.UserRepository) private axios: NuxtAxiosInstance
+        @inject(SYMBOLS.NuxtAxiosInstance) private axios: NuxtAxiosInstance
     ) { }
 
     async login(email: string, password: string): Promise<string>{
