@@ -21,7 +21,7 @@ describe("UserRepository", () => {
             const got = await sut.login("email", "password");
     
             expect(got).toBe("token");
-            expect(axios.$post).toHaveBeenCalledWith("http://localhost:8080/login", {email: "email", password: "password"});
+            expect(axios.$post).toHaveBeenCalledWith("/login", {email: "email", password: "password"});
         })
     })
 
@@ -29,7 +29,7 @@ describe("UserRepository", () => {
         it("should call api", async () => {
             await sut.register("email", "password");
     
-            expect(axios.$post).toHaveBeenCalledWith("http://localhost:8080/register", {email: "email", password: "password"});
+            expect(axios.$post).toHaveBeenCalledWith("/register", {email: "email", password: "password"});
         })
     })
 })
