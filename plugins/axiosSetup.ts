@@ -3,15 +3,14 @@ import { NuxtAxiosInstance } from '@nuxtjs/axios';
 import Constants from '~/src/core/Constants';
 import { container } from '~/src/core/Container';
 import { SYMBOLS } from '~/src/core/SYMBOLS';
+import ApiError from '~/src/exceptions/ApiError';
 
 export default function ({ $axios }: Context) {
     $axios.onError(error => {
-        //console.log(JSON.stringify(error));
         if (error.response) {
-            alert(`${error.response?.status} - ${error.response?.data.message}`);
-
+            throw new ApiError(error.response!.status, error.response!.data.message);
         } else {
-            alert(`${error.message}`);
+            throw new Error(error.message);
         }
     })
     if (process.client) {
