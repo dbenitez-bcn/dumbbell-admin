@@ -13,7 +13,6 @@ export default function ({ $axios }: Context) {
         } else {
             alert(`${error.message}`);
         }
-        return Promise.resolve(false);
     })
     if (process.client) {
         $axios.setToken(localStorage.getItem(Constants.storage.TOKEN_KEY) || '', 'Bearer')
