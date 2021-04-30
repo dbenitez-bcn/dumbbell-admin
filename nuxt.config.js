@@ -19,7 +19,11 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     'plugins/axiosSetup.ts',
-    'plugins/sessionLoader.ts',
+    {
+      src:
+        'plugins/sessionLoader.ts',
+      mode: 'client'
+    },
     'plugins/vuetify.js'
   ],
 
