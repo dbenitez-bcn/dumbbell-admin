@@ -3,7 +3,7 @@ import Constants from "~/src/core/Constants";
 import { lazyInject } from "~/src/core/Container";
 import { SYMBOLS } from "~/src/core/SYMBOLS";
 import { IUserRepository } from "~/src/repositories/types/IUserRepository";
-import SessionDTO from "../models/types/SessionDTO";
+import SessionDTO from "../src/models/types/SessionDTO";
 
 @Module({
     name: 'session',

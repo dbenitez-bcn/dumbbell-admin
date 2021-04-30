@@ -6,7 +6,7 @@ import { SYMBOLS } from "~/src/core/SYMBOLS";
 import { IUserRepository } from "~/src/repositories/types/IUserRepository";
 import { FakeUserRepository } from "~/src/repositories/__mocks__/UserRepository";
 import SessionStore from './session';
-import SessionDTO from '../models/types/SessionDTO';
+import SessionDTO from '../src/models/types/SessionDTO';
 import Constants from '~/src/core/Constants';
 
 describe("Session store", () => {
