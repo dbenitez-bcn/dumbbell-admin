@@ -1,7 +1,14 @@
 <template>
-  <div class="contai">
+  <div class="fill-box">
     <div class="grey lighten-2 cool-bg-top"></div>
     <div class="primary-dark cool-bg-bottom"></div>
+    <v-container class="red">
+      <v-row no-gutters justify="center">
+        <v-col cols="7">
+          <AccessCard />
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 <script lang="ts">
@@ -12,7 +19,7 @@ import Component from "vue-class-component";
 export default class AccessPage extends Vue {}
 </script>
 <style lang="scss" scoped>
-.contai {
+.fill-box {
   width: 100%;
   height: 100vh;
   margin: 0 auto;
@@ -29,7 +36,6 @@ export default class AccessPage extends Vue {}
   height: 50vh;
   position: absolute;
   top: -55vh;
-    //background-color: red;
   transform: rotate(8deg);
 }
 .cool-bg-bottom {
@@ -37,7 +43,6 @@ export default class AccessPage extends Vue {}
   height: 50vh;
   position: absolute;
   bottom: -31vh;
-  //   background-color: $primary-dark;
   transform: rotate(-8deg);
   z-index: -1;
 }
