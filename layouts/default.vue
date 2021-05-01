@@ -3,6 +3,18 @@
     <Nuxt />
   </div>
 </template>
+<script lang="ts">
+import Vue from "vue";
+import Component from "vue-class-component";
+
+@Component({
+  errorCaptured: function (err) {
+    alert(err);
+    return false;
+  },
+})
+export default class DefaultLayout extends Vue {}
+</script>
 
 <style>
 html {
