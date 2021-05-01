@@ -3,7 +3,7 @@ export default class ApiError extends Error {
         private status: number,
         message: any
     ) {
-        super(message.message);
+        super(message);
     }
 
     toString(): string {
