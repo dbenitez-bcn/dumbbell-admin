@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <Nuxt />
-  </div>
+  <v-app id="inspire">
+    <v-main>
+      <Nuxt />
+    </v-main>
+  </v-app>
 </template>
 <script lang="ts">
 import Vue from "vue";
@@ -18,15 +20,8 @@ export default class DefaultLayout extends Vue {}
 
 <style>
 html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
