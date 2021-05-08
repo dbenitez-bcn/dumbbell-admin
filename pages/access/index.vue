@@ -2,7 +2,7 @@
   <div class="fill-box">
     <div class="grey lighten-2 cool-bg-top"></div>
     <div class="primary-dark cool-bg-bottom"></div>
-    <v-container class="red">
+    <v-container>
       <v-row no-gutters justify="center">
         <v-col cols="7">
           <AccessCard />
