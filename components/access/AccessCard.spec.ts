@@ -17,7 +17,7 @@ describe('Access card', () => {
         wrapper.find(byDT("register-tab")).trigger("click");
         await wrapper.vm.$nextTick();
         
-        expect(wrapper.find(byDT("login-form")).exists()).toBe(false);
+        expect(wrapper.find(byDT("login-form")).exists()).toBeFalsy();
         expect(wrapper.find(byDT("register-form")).exists()).toBeTruthy();
     })
 })

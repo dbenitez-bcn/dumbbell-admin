@@ -25,8 +25,12 @@
       </v-row>
       <v-row>
         <v-col>
-          <template data-dt="login-form" v-if="isLogin"><LoginForm /></template>
-          <template data-dt="register-form" v-else><RegisterForm /></template>
+          <div class="d-flex flex-column justify-center half-screen">
+            <template v-if="isLogin"
+              ><LoginForm data-dt="login-form" />
+            </template>
+            <template v-else><RegisterForm data-dt="register-form" /></template>
+          </div>
         </v-col>
       </v-row>
     </v-container>
@@ -41,7 +45,7 @@ import RegisterForm from "./RegisterForm.vue";
 @Component({
   components: {
     LoginForm,
-    RegisterForm
+    RegisterForm,
   },
 })
 export default class AccessCard extends Vue {
@@ -65,6 +69,9 @@ export default class AccessCard extends Vue {
   }
 }
 </script><style lang="scss" scoped>
+.half-screen {
+  min-height: 45vh;
+}
 .tab {
   padding: 8px 0px;
   color: white;
