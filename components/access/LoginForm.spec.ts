@@ -1,8 +1,4 @@
-import { createLocalVue, shallowMount } from "@vue/test-utils";
-import Vuex, { Store } from 'vuex';
-import Vuetify from 'vuetify'
-import SessionDTO from "~/src/models/types/SessionDTO";
-import { byDT } from "~/test/TestUtils";
+import { shallowMount } from "@vue/test-utils";
 import LoginForm from "./LoginForm.vue";
 
 describe("Login form", () => {
