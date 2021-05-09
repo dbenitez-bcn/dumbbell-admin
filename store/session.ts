@@ -32,7 +32,7 @@ export default class SessionStore extends VuexModule {
         localStorage.setItem(Constants.storage.TOKEN_KEY, token);
     }
 
-    @Action
+    @Action({rawError: true})
     async register(dto: SessionDTO) {
             await this.repository.register(dto.email, dto.password);
     }
