@@ -1,5 +1,5 @@
 <template>
-  <v-card outlined class="mx-auto">
+  <v-card outlined class="mx-auto access-card">
     <v-container>
       <v-row>
         <v-col cols="6" class="pa-0">
@@ -69,6 +69,9 @@ export default class AccessCard extends Vue {
   }
 }
 </script><style lang="scss" scoped>
+.access-card {
+  overflow: hidden;
+}
 .half-screen {
   min-height: 45vh;
 }
