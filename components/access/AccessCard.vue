@@ -26,7 +26,7 @@
       <v-row>
         <v-col>
           <template data-dt="login-form" v-if="isLogin"><LoginForm /></template>
-          <div data-dt="register-form" v-else>register</div>
+          <template data-dt="register-form" v-else><RegisterForm /></template>
         </v-col>
       </v-row>
     </v-container>
@@ -36,10 +36,12 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import LoginForm from "./LoginForm.vue";
+import RegisterForm from "./RegisterForm.vue";
 
 @Component({
   components: {
     LoginForm,
+    RegisterForm
   },
 })
 export default class AccessCard extends Vue {
