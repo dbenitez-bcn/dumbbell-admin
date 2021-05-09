@@ -14,14 +14,13 @@ describe("UserRepository", () => {
     describe("login", () => {
         it("should call api", async () => {
             axios.$post.mockResolvedValue({
-                data: {
                     token: "token"
-                }
             })
+
             const got = await sut.login("email", "password");
     
             expect(got).toBe("token");
-            expect(axios.$post).toHaveBeenCalledWith("/login", {email: "email", password: "password"});
+            expect(axios.$post).toHaveBeenCalledWith("/admin/login", {email: "email", password: "password"});
         })
     })
 

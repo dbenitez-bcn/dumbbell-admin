@@ -10,8 +10,8 @@ export default class UserRepository implements IUserRepository {
     ) { }
 
     async login(email: string, password: string): Promise<string>{
-        const response = await this.axios.$post("/login", {email, password});
-        return response.data.token;
+        const response = await this.axios.$post("/admin/login", {email, password});
+        return response.token;
     }
 
     async register(email: string, password: string): Promise<void>{
