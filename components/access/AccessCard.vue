@@ -25,7 +25,7 @@
       </v-row>
       <v-row>
         <v-col>
-          <div data-dt="login-form" v-if="isLogin">login</div>
+          <template data-dt="login-form" v-if="isLogin"><LoginForm /></template>
           <div data-dt="register-form" v-else>register</div>
         </v-col>
       </v-row>
@@ -35,8 +35,13 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import LoginForm from "./LoginForm.vue";
 
-@Component
+@Component({
+  components: {
+    LoginForm,
+  },
+})
 export default class AccessCard extends Vue {
   private isLogin: boolean = true;
 
