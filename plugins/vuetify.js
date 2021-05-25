@@ -1,5 +1,5 @@
 import { light } from "~/theme";
 
 export default function ({ $vuetify }) {
-  $vuetify.theme.themes.light = light
+  $vuetify.theme.themes.light = light;
 }
