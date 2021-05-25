@@ -16,7 +16,6 @@ export default function ({ $axios }: Context) {
     if (process.client) {
         $axios.setToken(localStorage.getItem(Constants.storage.TOKEN_KEY) || '', 'Bearer')
     }
-    $axios.setBaseURL(Constants.BASE_URL);
     container
         .bind<NuxtAxiosInstance>(SYMBOLS.NuxtAxiosInstance)
         .toConstantValue($axios);
