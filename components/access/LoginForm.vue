@@ -52,6 +52,7 @@ export default class LoginForm extends Vue {
     await getModule(SessionStore, this.$store).login(
       new SessionDTO(this.email, this.password)
     );
+    await this.$router.push("/exercises");
   }
 }
 </script>
