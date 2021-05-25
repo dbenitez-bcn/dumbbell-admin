@@ -1,5 +1,6 @@
 <template>
   <v-app id="inspire">
+    <NavigationBar v-if="$auth.loggedIn" />
     <v-main>
       <Nuxt />
     </v-main>
