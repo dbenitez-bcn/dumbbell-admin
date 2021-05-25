@@ -49,10 +49,12 @@ export default class LoginForm extends Vue {
   private passwordRules = [(v: string) => !!v || "Password is required"];
 
   private async login() {
-    await getModule(SessionStore, this.$store).login(
-      new SessionDTO(this.email, this.password)
-    );
-    await this.$router.push("/exercises");
+    await this.$auth.loginWith("local", {
+      data: {
+        email: this.email,
+        password: this.password,
+      },
+    });
   }
 }
 </script>
