@@ -49,6 +49,19 @@ export default {
     baseURL: Constants.BASE_URL,
   },
 
+  // Nuxt auth module configuration: https://auth.nuxtjs.org/
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/admin/login', method: 'post' },
+          logout: { url: '/auth/logout', method: 'delete' },
+          user: false
+        }
+      }
+    }
+  },
+
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
