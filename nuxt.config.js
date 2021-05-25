@@ -59,6 +59,12 @@ export default {
           user: false
         }
       }
+    },
+    redirect: {
+      login: '/access',
+      logout: '/access',
+      callback: '/access',
+      home: '/exercises'
     }
   },
 
