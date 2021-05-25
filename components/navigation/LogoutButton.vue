@@ -15,9 +15,8 @@ import SessionStore from "~/store/session";
 
 @Component
 export default class NavigationBar extends Vue {
-  logout() {
-    getModule(SessionStore, this.$store).logout();
-    this.$router.push("/access");
+  async logout() {
+    await this.$auth.logout();
   }
 }
 </script>
