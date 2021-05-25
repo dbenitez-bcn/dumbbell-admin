@@ -2,9 +2,7 @@
   <div class="container">
     <div>
       <Logo />
-      <h1 class="title">
-        dumbbell-admin
-      </h1>
+      <h1 class="title">dumbbell-admin</h1>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -28,9 +26,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from "vue";
+import Component from "vue-class-component";
 
-export default Vue.extend({})
+@Component
+export default class Index extends Vue {}
 </script>
 
 <style>
@@ -44,16 +44,8 @@ export default Vue.extend({})
 }
 
 .title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
