@@ -25,6 +25,11 @@ export default {
     'plugins/vuetify.js'
   ],
 
+  // Router property -  https://nuxtjs.org/docs/2.x/features/file-system-routing#the-router-property
+  router: {
+    middleware: ['auth']
+  },
+
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
