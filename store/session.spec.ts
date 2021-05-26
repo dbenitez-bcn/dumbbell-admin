@@ -68,14 +68,4 @@ describe("Session store", () => {
 
         expect(repository.register).toBeCalledWith("email", "password");
     })
-
-    it('should remove token when logout', () => {
-        Storage.prototype.removeItem = jest.fn();
-
-        sut.logout();
-
-        expect(sut.isLogged).toBeFalsy();
-        expect(Storage.prototype.removeItem).toBeCalledWith(Constants.storage.TOKEN_KEY);
-    })
-
 })

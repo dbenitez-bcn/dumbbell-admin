@@ -36,10 +36,4 @@ export default class SessionStore extends VuexModule {
     async register(dto: SessionDTO) {
         await this.repository.register(dto.email, dto.password);
     }
-
-    @Action
-    async logout() {
-        localStorage.removeItem(Constants.storage.TOKEN_KEY);
-        this.setToken(null);
-    }
 }
