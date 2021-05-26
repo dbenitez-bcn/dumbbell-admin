@@ -34,33 +34,6 @@ describe("Session store", () => {
         sut = getModule(SessionStore, store);
     })
 
-    it("should call repository when login", async () => {
-        const dto = new SessionDTO("email", "password");
-
-        await sut.login(dto);
-
-        expect(repository.login).toBeCalledWith("email", "password");
-    })
-
-    it("should update token when login", async () => {
-        repository.login.mockResolvedValue("token");
-        const dto = new SessionDTO("email", "password");
-
-        await sut.login(dto);
-
-        expect(sut.isLogged).toBeTruthy();
-    })
-
-    it('should store token when login', async () => {
-        repository.login.mockResolvedValue("token");
-        const dto = new SessionDTO("email", "password");
-        Storage.prototype.setItem = jest.fn();
-
-        await sut.login(dto);
-
-        expect(Storage.prototype.setItem).toBeCalledWith(Constants.storage.TOKEN_KEY, "token");
-    })
-
     it("should call repository when register", async () => {
         const dto = new SessionDTO("email", "password");
 
