@@ -10,7 +10,7 @@ import SessionDTO from '../src/models/types/SessionDTO';
 
 describe("Session store", () => {
     let sut: SessionStore;
-    let repository: FakeUserRepository;
+    let repository: IUserRepository;
 
     beforeAll(() => {
         container
@@ -18,7 +18,7 @@ describe("Session store", () => {
             .to(FakeUserRepository)
             .inSingletonScope();
         repository = container
-            .get<IUserRepository>(SYMBOLS.UserRepository) as FakeUserRepository;
+            .get<IUserRepository>(SYMBOLS.UserRepository)
         const Vue = createLocalVue();
         Vue.use(Vuex);
     })
