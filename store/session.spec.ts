@@ -18,7 +18,6 @@ describe("Session store", () => {
             .to(FakeUserRepository)
             .inSingletonScope();
         repository = container
-
             .get<IUserRepository>(SYMBOLS.UserRepository) as FakeUserRepository;
         const Vue = createLocalVue();
         Vue.use(Vuex);
