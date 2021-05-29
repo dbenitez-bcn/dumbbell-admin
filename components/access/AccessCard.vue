@@ -73,7 +73,7 @@ export default class AccessCard extends Vue {
   overflow: hidden;
 }
 .half-screen {
-  min-height: 45vh;
+  height: 45vh;
 }
 .tab {
   padding: 8px 0px;
