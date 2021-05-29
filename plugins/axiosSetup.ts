@@ -13,9 +13,6 @@ export default function ({ $axios }: Context) {
             throw new Error(error.message);
         }
     })
-    if (process.client) {
-        $axios.setToken(localStorage.getItem(Constants.storage.TOKEN_KEY) || '', 'Bearer')
-    }
     container
         .bind<NuxtAxiosInstance>(SYMBOLS.NuxtAxiosInstance)
         .toConstantValue($axios);
