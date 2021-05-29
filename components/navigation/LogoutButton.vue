@@ -10,8 +10,6 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { getModule } from "vuex-module-decorators";
-import SessionStore from "~/store/session";
 
 @Component
 export default class NavigationBar extends Vue {
