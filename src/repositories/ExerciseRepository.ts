@@ -12,6 +12,6 @@ export default class ExerciseRepository implements IExerciseRepository {
 
     async getAll(): Promise<Exercise[]> {
         const response = await this.axios.$get("/exercises");
-        return response.data.map((exercise: any) => new Exercise(exercise.id, exercise.name, exercise.description, exercise.difficulty));
+        return response.map((exercise: any) => new Exercise(exercise.id, exercise.name, exercise.description, exercise.difficulty));
     }
 }

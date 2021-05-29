@@ -15,8 +15,7 @@ describe("Exercise repository", () => {
 
     it("Should return all exercises", async () => {
         const expected = [new Exercise(1, "first", "exercise", 7), new Exercise(2, "second", "exercise", 4)];
-        axios.$get.mockResolvedValue({
-            data: [{
+        axios.$get.mockResolvedValue([{
                 name: "first",
                 description: "exercise",
                 difficulty: 7,
@@ -26,8 +25,7 @@ describe("Exercise repository", () => {
                 description: "exercise",
                 difficulty: 4,
                 id: 2
-            }]
-        })
+            }])
 
         const got = await sut.getAll();
 
