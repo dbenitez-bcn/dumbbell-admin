@@ -14,17 +14,6 @@ export default class SessionStore extends VuexModule {
 
     @lazyInject(SYMBOLS.UserRepository) repository!: IUserRepository
 
-    private token: string | null | undefined;
-
-    get isLogged(): boolean {
-        return !!this.token;
-    }
-
-    @Mutation
-    setToken(token: string | null) {
-        this.token = token;
-    }
-
     @Action({ rawError: true })
     async register(dto: SessionDTO) {
         await this.repository.register(dto.email, dto.password);
