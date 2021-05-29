@@ -1,4 +1,3 @@
-export interface IUserRepository {
-    login(email: string, password: string): Promise<string>
+export default interface IUserRepository {
     register(email: string, password: string): Promise<void>
 }

@@ -3,7 +3,7 @@ import { getModule } from 'nuxt-property-decorator';
 import { createLocalVue } from "@vue/test-utils";
 import { container } from "~/src/core/Container";
 import { SYMBOLS } from "~/src/core/SYMBOLS";
-import { IUserRepository } from "~/src/repositories/types/IUserRepository";
+import IUserRepository from "~/src/repositories/types/IUserRepository";
 import { FakeUserRepository } from "~/src/repositories/__mocks__/UserRepository";
 import SessionStore from './session';
 import SessionDTO from '../src/models/types/SessionDTO';
