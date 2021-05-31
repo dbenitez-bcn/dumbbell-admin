@@ -30,6 +30,6 @@ describe("Exercise repository", () => {
         const got = await sut.getAll();
 
         expect(got).toStrictEqual(expected);
-        expect(axios.$get).toBeCalledWith("/exercises")
+        expect(axios.$get).toBeCalledWith("/exercise")
     })
 })
