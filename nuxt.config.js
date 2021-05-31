@@ -57,19 +57,25 @@ export default {
   auth: {
     strategies: {
       local: {
+        scheme: 'refresh',
         endpoints: {
           login: { url: '/admin/login', method: 'post' },
           logout: { url: '/auth/logout', method: 'delete' },
+          refresh: { url: '/auth/refresh', method: 'post' },
           user: false
-        }
+        },
+        refreshToken: {
+          property: 'refreshToken',
+          data: 'refreshToken',
+        },
       }
     },
     redirect: {
       login: '/access',
       logout: '/access',
-      callback: '/access',
+      callback: false,
       home: '/exercises'
-    }
+    },
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
