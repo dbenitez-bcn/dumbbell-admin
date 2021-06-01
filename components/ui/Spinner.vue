@@ -20,8 +20,4 @@ export default class Spinner extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.fill-parent {
-  width: 100%;
-  height: 100%;
-}
 </style>
