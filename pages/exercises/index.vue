@@ -1,5 +1,5 @@
 <template>
-  <ExercisesList />
+    <ExercisesList />
 </template>
 
 <script lang="ts">
