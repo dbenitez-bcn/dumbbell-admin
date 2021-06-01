@@ -1,10 +1,5 @@
 <template>
-  <p v-if="$fetchState.pending">
-    <v-progress-circular
-      indeterminate
-      color="primary-dark"
-    ></v-progress-circular>
-  </p>
+  <Spinner v-if="$fetchState.pending" />
   <p v-else-if="$fetchState.error">
     <v-alert dense outlined type="error">
       An error occured while getting the exercises :(
@@ -23,8 +18,13 @@ import Vue from "vue";
 import { Component } from "nuxt-property-decorator";
 import { getModule } from "vuex-module-decorators";
 import ExerciseStore from "~/store/exercise";
+import Spinner from "../ui/Spinner.vue";
 
-@Component
+@Component({
+  components: {
+    Spinner,
+  },
+})
 export default class ExercisesList extends Vue {
   async fetch() {
     await getModule(ExerciseStore, this.$store).fetchExercises();
