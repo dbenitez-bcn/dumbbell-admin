@@ -1,4 +1,5 @@
 import Constants from './src/core/Constants';
+import { light } from "./theme";
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -16,12 +17,12 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/styles.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    'plugins/axiosSetup.ts',
-    'plugins/vuetify.js'
+    'plugins/axiosSetup.ts'
   ],
 
   // Router property -  https://nuxtjs.org/docs/2.x/features/file-system-routing#the-router-property
@@ -78,6 +79,14 @@ export default {
     },
   },
 
+  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
+  vuetify: {
+    theme: {
+      themes: {
+        light
+      }
+    }
+  },
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
