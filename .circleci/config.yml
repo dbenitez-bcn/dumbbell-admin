@@ -20,7 +20,7 @@ jobs:
             - ~/.npm
       - run:
           name: Run tests
-          command: npm run test
+          command: npm run test -- --maxWorkers=2
       - codecov/upload:
           file: ./coverage/coverage-final.json
 
