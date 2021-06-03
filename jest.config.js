@@ -20,7 +20,8 @@ module.exports = {
     '<rootDir>/components/**/*.vue',
     '<rootDir>/pages/**/*.vue',
     '<rootDir>/src/**/*.ts',
-    '<rootDir>/store/**/*.vue'
+    '<rootDir>/store/**/*.vue',
+    '<rootDir>/layouts/**/*.vue'
   ],
   setupFilesAfterEnv: ['./jest.setup.ts']
 }
