@@ -32,9 +32,6 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { getModule } from "vuex-module-decorators";
-import SessionDTO from "~/src/models/types/SessionDTO";
-import SessionStore from "~/store/session";
 
 @Component
 export default class LoginForm extends Vue {
