@@ -13,7 +13,8 @@ describe("Exercise repository", () => {
     const axios = {
         $get: jest.fn(),
         $delete: jest.fn(),
-        $post: jest.fn()
+        $post: jest.fn(),
+        $put: jest.fn()
     }
     const sut = new ExerciseRepository(axios as unknown as NuxtAxiosInstance);
 
@@ -52,8 +53,14 @@ describe("Exercise repository", () => {
 
         const got = await sut.create("name", "description", 5);
 
-        expect(axios.$post).toBeCalledWith("/exercise", {name: "name", description: "description", difficulty: 5});
+        expect(axios.$post).toBeCalledWith("/exercise", { name: "name", description: "description", difficulty: 5 });
         expect(got).toStrictEqual(FIRST_EXERCISE);
+    })
+
+    it("should update an exercise", async () => {
+        await sut.update(1, "name", "description", 5);
+
+        expect(axios.$put).toBeCalledWith("/exercise/1", { name: "name", description: "description", difficulty: 5 });
     })
 
     it("Should delete an exercise", async () => {

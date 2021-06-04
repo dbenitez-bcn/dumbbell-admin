@@ -24,7 +24,11 @@ export default class ExerciseRepository implements IExerciseRepository {
             .then(this.toExercise);
     }
 
-    async delete(id: number): Promise<void> {
+    async update(id: number, name: string, description: string, difficulty: number) {
+        this.axios.$put(`/exercise/${id}`, { name, description, difficulty });
+    }
+
+    async delete(id: number) {
         await this.axios.$delete(`/exercise/${id}`);
     }
 
