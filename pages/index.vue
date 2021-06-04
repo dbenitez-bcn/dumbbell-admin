@@ -20,6 +20,19 @@
         >
           GitHub
         </a>
+        <v-btn dark color="red darken-2" @click="snackbar = true">
+          Open Snackbar
+        </v-btn>
+
+        <v-snackbar v-model="snackbar" right top>
+          {{ text }}
+
+          <template v-slot:action="{ attrs }">
+            <v-btn color="red" text v-bind="attrs" @click="snackbar = false">
+              Close
+            </v-btn>
+          </template>
+        </v-snackbar>
       </div>
     </div>
   </div>
@@ -30,7 +43,10 @@ import Vue from "vue";
 import Component from "vue-class-component";
 
 @Component
-export default class Index extends Vue {}
+export default class Index extends Vue {
+  snackbar = false;
+  text = `I'm a multi-line snackbar.`;
+}
 </script>
 
 <style>
