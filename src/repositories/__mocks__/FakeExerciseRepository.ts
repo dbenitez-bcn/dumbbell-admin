@@ -5,5 +5,6 @@ import IExerciseRepository from "../types/IExerciseRepository";
 export class FakeExerciseRepository implements IExerciseRepository {
     getAll = jest.fn();
     getById = jest.fn();
+    create = jest.fn();
     delete = jest.fn();
 }
