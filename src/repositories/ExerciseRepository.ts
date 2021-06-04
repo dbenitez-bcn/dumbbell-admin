@@ -14,4 +14,9 @@ export default class ExerciseRepository implements IExerciseRepository {
         const response = await this.axios.$get("/exercise");
         return response.map((exercise: any) => new Exercise(exercise.id, exercise.name, exercise.description, exercise.difficulty));
     }
+
+    async delete(id: number): Promise<void> {
+        await this.axios.$delete(`/exercise/${id}`);
+    }
+
 }
