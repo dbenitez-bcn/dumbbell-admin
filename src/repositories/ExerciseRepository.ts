@@ -11,12 +11,18 @@ export default class ExerciseRepository implements IExerciseRepository {
     ) { }
 
     async getAll(): Promise<Exercise[]> {
-        const response = await this.axios.$get("/exercise");
-        return response.map((exercise: any) => new Exercise(exercise.id, exercise.name, exercise.description, exercise.difficulty));
+        return await this.axios.$get("/exercise").then(response => response.map(this.toExercise));
+    }
+
+    async getById(id: number): Promise<Exercise> {
+        return await this.axios.$get(`/exercise/${id}`).then(this.toExercise);
     }
 
     async delete(id: number): Promise<void> {
         await this.axios.$delete(`/exercise/${id}`);
     }
 
+    private toExercise(exercise: any): Exercise {
+        return new Exercise(exercise.id, exercise.name, exercise.description, exercise.difficulty);
+    }
 }
