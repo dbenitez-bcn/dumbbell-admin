@@ -26,6 +26,11 @@ export default class ExerciseStore extends VuexModule {
         this.setExercises(await this.repository.getAll());
     }
 
+    @Action({ rawError: true })
+    async delete(id: number) {
+        await this.repository.delete(id);
+    }
+
     get exercises(): ExerciseVM[] {
         return this.list.map(exercise => exercise.toVM());
     }

@@ -42,4 +42,10 @@ describe("Exercise store", () => {
         expect(got).toStrictEqual([new ExerciseVM(1, "name", "description", 8)]);
         expect(repository.getAll).toBeCalled();
     })
+
+    it("should delete an exercise", async () => {
+        await sut.delete(1);
+
+        expect(repository.delete).toBeCalledWith(1);
+    })
 })
