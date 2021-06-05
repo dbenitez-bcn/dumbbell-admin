@@ -4,11 +4,9 @@
     v-else-if="$fetchState.error"
     :message="'Kettly couldn\'t find exercises'"
   />
-  <div v-else>
+  <div class="ma-6" v-else>
     <h1>Exercises</h1>
-    <ul v-for="exercise of exercises" :key="exercise.id">
-      <li>{{ exercise.name }}</li>
-    </ul>
+    <ExercisesListItem v-for="exercise of exercises" :key="exercise.id" :exercise="exercise" />
   </div>
 </template>
 
@@ -19,11 +17,13 @@ import { getModule } from "vuex-module-decorators";
 import ExerciseStore from "~/store/exercise";
 import Spinner from "../ui/Spinner.vue";
 import KettlyError from "../ui/KettlyError.vue";
+import ExercisesListItem from "./ExerciseListItem.vue";
 
 @Component({
   components: {
     Spinner,
     KettlyError,
+    ExercisesListItem
   },
 })
 export default class ExercisesList extends Vue {
