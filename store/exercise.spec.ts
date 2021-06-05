@@ -44,8 +44,12 @@ describe("Exercise store", () => {
     })
 
     it("should delete an exercise", async () => {
+        repository.getAll.mockResolvedValue([new Exercise(1, "name", "description", 8)]);
+        await sut.fetchExercises();
+
         await sut.delete(1);
 
         expect(repository.delete).toBeCalledWith(1);
+        expect(sut.exercises).toHaveLength(0);
     })
 })

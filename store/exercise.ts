@@ -21,6 +21,11 @@ export default class ExerciseStore extends VuexModule {
         this.list = exercises;
     }
 
+    @Mutation
+    private popById(id: number) {
+        this.list = this.list.filter(exercise => exercise.id != id);
+    }
+
     @Action({ rawError: true })
     async fetchExercises() {
         this.setExercises(await this.repository.getAll());
@@ -29,6 +34,7 @@ export default class ExerciseStore extends VuexModule {
     @Action({ rawError: true })
     async delete(id: number) {
         await this.repository.delete(id);
+        this.popById(id)
     }
 
     get exercises(): ExerciseVM[] {
