@@ -10,6 +10,7 @@
       align-center
       justify-space-between
       pa-2
+      my-2
     "
   >
     <v-card-title class="pa-0">{{ exercise.name }}</v-card-title>
