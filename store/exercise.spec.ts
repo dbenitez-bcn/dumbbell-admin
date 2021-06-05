@@ -84,4 +84,10 @@ describe("Exercise store", () => {
             expect(repository.delete).toBeCalledWith(1);
         })
     })
+
+    it("Should update an exercise", async () => {
+        await sut.update(new ExerciseDTO("name", "description", 4, 1));
+
+        expect(repository.update).toBeCalledWith(1, "name", "description", 4);
+    })
 })

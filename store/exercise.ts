@@ -44,8 +44,13 @@ export default class ExerciseStore extends VuexModule {
     }
 
     @Action({ rawError: true })
-    async create(exerciseDTO: ExerciseDTO) {
-        this.add(await this.repository.create(exerciseDTO.name, exerciseDTO.description, exerciseDTO.difficulty));
+    async create(dto: ExerciseDTO) {
+        this.add(await this.repository.create(dto.name, dto.description, dto.difficulty));
+    }
+
+    @Action({ rawError: true })
+    async update(dto: ExerciseDTO) {
+        await this.repository.update(dto.id, dto.name, dto.description, dto.difficulty);
     }
 
     get exercises(): ExerciseVM[] {
