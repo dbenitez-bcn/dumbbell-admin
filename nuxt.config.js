@@ -82,6 +82,7 @@ export default {
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     theme: {
+      options: { customProperties: true },
       themes: {
         light
       }
