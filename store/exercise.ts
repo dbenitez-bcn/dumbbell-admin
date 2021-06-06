@@ -40,7 +40,7 @@ export default class ExerciseStore extends VuexModule {
     @Action({ rawError: true })
     async delete(id: number) {
         await this.repository.delete(id);
-        this.popById(id)
+        this.popById(id);
     }
 
     @Action({ rawError: true })
@@ -51,6 +51,11 @@ export default class ExerciseStore extends VuexModule {
     @Action({ rawError: true })
     async update(dto: ExerciseDTO) {
         await this.repository.update(dto.id, dto.name, dto.description, dto.difficulty);
+    }
+
+    @Action({ rawError: true })
+    async getById(id: number) {
+        return await this.repository.getById(id).then(exercise => exercise.toVM());
     }
 
     get exercises(): ExerciseVM[] {

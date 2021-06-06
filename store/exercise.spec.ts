@@ -47,6 +47,24 @@ describe("Exercise store", () => {
         expect(repository.getAll).toBeCalled();
     })
 
+    describe("get one by id", () => {
+        it("Should fetch an exercise", async () => {
+            repository.getById.mockResolvedValue(AN_EXERCISE);
+
+            const got = await sut.getById(1);
+
+            expect(got).toStrictEqual(AN_EXERCISE_VM);
+        })
+
+        it("Should all repository", async () => {
+            repository.getById.mockResolvedValue(AN_EXERCISE);
+
+            await sut.getById(1);
+
+            expect(repository.getById).toBeCalledWith(1);
+        })
+    })
+
     describe("create", () => {
         it("Should call repository", async () => {
             repository.create.mockResolvedValue(AN_EXERCISE);
@@ -54,7 +72,6 @@ describe("Exercise store", () => {
             await sut.create(new ExerciseDTO("name", "description", 7));
 
             expect(repository.create).toBeCalledWith("name", "description", 7);
-            expect(sut.exercises).toContainEqual(AN_EXERCISE_VM);
         })
 
         it("Should add the exercise", async () => {
