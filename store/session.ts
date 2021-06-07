@@ -1,5 +1,4 @@
 import { Module, VuexModule, Action, Mutation } from "vuex-module-decorators";
-import Constants from "~/src/core/Constants";
 import { lazyInject } from "~/src/core/Container";
 import { SYMBOLS } from "~/src/core/SYMBOLS";
 import IUserRepository from "../src/repositories/types/IUserRepository";
