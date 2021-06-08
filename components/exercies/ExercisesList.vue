@@ -1,13 +1,14 @@
 <template>
   <Spinner v-if="$fetchState.pending" />
-  <KettlyError
-    v-else-if="$fetchState.error"
-    :message="'Kettly couldn\'t find exercises'"
-  />
-  <div class="ma-6" v-else>
+  <div class="ma-6" v-else-if="exercises.length > 0">
     <h1>Exercises</h1>
-    <ExercisesListItem v-for="exercise of exercises" :key="exercise.id" :exercise="exercise" />
+    <ExercisesListItem
+      v-for="exercise of exercises"
+      :key="exercise.id"
+      :exercise="exercise"
+    />
   </div>
+  <KettlyError v-else :message="'Kettly couldn\'t find exercises'" />
 </template>
 
 <script lang="ts">
@@ -23,8 +24,9 @@ import ExercisesListItem from "./ExerciseListItem.vue";
   components: {
     Spinner,
     KettlyError,
-    ExercisesListItem
+    ExercisesListItem,
   },
+  fetchOnServer: false,
 })
 export default class ExercisesList extends Vue {
   async fetch() {
