@@ -36,12 +36,12 @@ export default class NavigationBar extends Vue {
   private navButtons = [
     {
       icon: "mdi-dumbbell",
-      to: "exercises",
+      to: "/exercises",
       title: "Exercises",
     },
     {
       icon: "mdi-toggle-switch",
-      to: "toggles",
+      to: "/toggles",
       title: "Toggles",
     },
   ];
