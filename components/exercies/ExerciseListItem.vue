@@ -12,6 +12,7 @@
       pa-2
       my-2
     "
+    @click="toDetails()"
   >
     <v-card-title class="pa-0">{{ exercise.name }}</v-card-title>
     <div class="d-flex flex-row">
@@ -42,9 +43,14 @@ export default class ExercisesListItem extends Vue {
   private readonly exercise!: ExerciseVM;
 
   private async deleteExercise() {
+      // TODO: This triggers toDetails()
+      // Check https://es.vuejs.org/v2/guide/events.html
     if (window.confirm("Do you want to delete exercise?")) {
       await getModule(ExerciseStore, this.$store).delete(this.exercise.id);
     }
+  }
+  private toDetails() {
+    this.$router.push(`/exercises/${this.exercise.id}`);
   }
 }
 </script>

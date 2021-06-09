@@ -8,7 +8,7 @@
         color="error"
         v-bind="attrs"
         v-on="on"
-        @click="$emit('delete')"
+        @click.stop="$emit('delete')"
       >
         <v-icon>mdi-delete</v-icon>
       </v-btn>
