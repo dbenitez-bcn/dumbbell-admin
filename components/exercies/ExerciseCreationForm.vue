@@ -7,11 +7,13 @@
         label="Name"
         :rules="[(v) => !!v || 'Name is required']"
       ></v-text-field>
-      <v-text-field
+      <v-textarea
         v-model="description"
         label="Description"
+        auto-grow
+        rows="1"
         :rules="[(v) => !!v || 'Description is required']"
-      ></v-text-field>
+      ></v-textarea>
       <v-subheader class="pa-0">Difficulty</v-subheader>
       <v-slider
         v-model="difficulty"
