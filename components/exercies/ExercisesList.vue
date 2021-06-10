@@ -1,6 +1,6 @@
 <template>
   <Spinner v-if="$fetchState.pending" />
-  <div class="ma-6" v-else-if="exercises.length > 0">
+  <div v-else-if="exercises.length > 0">
     <h1>Exercises</h1>
     <ExercisesListItem
       v-for="exercise of exercises"
