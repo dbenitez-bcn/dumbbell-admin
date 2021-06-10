@@ -1,7 +1,7 @@
 <template>
   <v-app id="inspire">
     <NavigationBar v-if="$auth.loggedIn" />
-    <v-main>
+    <v-main class="grey lighten-5">
       <Nuxt />
     </v-main>
   </v-app>
