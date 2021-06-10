@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="fill-parent pa-6">
     <ExercisesList />
     <ExpandableFab>
       <ExerciseCreationForm />
