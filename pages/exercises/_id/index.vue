@@ -5,8 +5,7 @@
     :message="'Kettly couldn\'t find the exercise'"
   />
   <div class="ma-6" v-else>
-    <h1>{{ exercise.name }}</h1>
-    <h1>{{ exercise.description }}</h1>
+    <ExerciseDetails :exercise="exercise" />
   </div>
 </template>
 
@@ -17,16 +16,18 @@ import ExerciseVM from "~/src/models/viewModels/ExerciseVM";
 import ExerciseStore from "~/store/exercise";
 import KettlyError from "~/components/ui/KettlyError.vue";
 import Spinner from "~/components/ui/Spinner.vue";
+import ExerciseDetails from "~/components/exercies/ExerciseDetails.vue";
 
 @Component({
   components: {
     KettlyError,
-    Spinner
+    Spinner,
+    ExerciseDetails
   },
   fetchOnServer: false,
 })
 export default class ExerciseDetailsPage extends Vue {
-  private exercise!: ExerciseVM;// | null = null;
+  private exercise!: ExerciseVM;
   async fetch() {
     this.exercise = await getModule(ExerciseStore, this.$store).getById(
       Number(this.$route.params.id)
