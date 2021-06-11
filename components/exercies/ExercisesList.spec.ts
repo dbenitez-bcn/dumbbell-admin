@@ -6,6 +6,7 @@ describe("Exercises list", () => {
     const localVue = createLocalVue();
     localVue.use(Vuex);
     const exerciseStore = {
+        namespaced: true,
         getters: {
             exercises: jest.fn()
         },
@@ -20,6 +21,7 @@ describe("Exercises list", () => {
     })
 
     it("should display a list of exercies", async () => {
+        exerciseStore.getters.exercises.mockReturnValue([]);
         const sut = shallowMount(ExercisesList, {
             store, localVue, mocks: {
                 $fetchState: {
