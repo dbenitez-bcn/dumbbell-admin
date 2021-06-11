@@ -79,7 +79,7 @@ export default class ExpandableFab extends Vue {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background-color: var(--v-accent-base);
+  background-color: $accent;
   transition: all 0.35s, border-radius 1s;
 }
 

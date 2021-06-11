@@ -57,10 +57,10 @@ export default class ExercisesListItem extends Vue {
 
 <style lang="scss" scoped>
 .exercise-card {
-  border-left: 8px var(--v-primary-base) solid;
+  border-left: 8px $primary solid;
   transition: 0.1s;
 }
 .exercise-card:hover {
-  border-left: 16px var(--v-primary-base) solid;
+  border-left: 16px $primary solid;
 }
 </style>
