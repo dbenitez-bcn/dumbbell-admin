@@ -5,3 +5,7 @@
   .clickable:hover {
     cursor: pointer;
   }
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
