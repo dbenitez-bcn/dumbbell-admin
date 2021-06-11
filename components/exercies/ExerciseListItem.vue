@@ -43,8 +43,6 @@ export default class ExercisesListItem extends Vue {
   private readonly exercise!: ExerciseVM;
 
   private async deleteExercise() {
-      // TODO: This triggers toDetails()
-      // Check https://es.vuejs.org/v2/guide/events.html
     if (window.confirm("Do you want to delete exercise?")) {
       await getModule(ExerciseStore, this.$store).delete(this.exercise.id);
     }
