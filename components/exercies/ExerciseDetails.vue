@@ -6,7 +6,7 @@
           <h2 class="grey--text text--darken-1 mr-2">#{{ exercise.id }}</h2>
           <h2>{{ exercise.name }}</h2>
         </div>
-        <EditBtn @edit="toEdit" />
+        <EditBtn @click="toEdit" />
       </div>
       <div class="d-flex flex-row py-4">
         <v-card-subtitle class="pa-0 mr-2">Difficulty</v-card-subtitle>

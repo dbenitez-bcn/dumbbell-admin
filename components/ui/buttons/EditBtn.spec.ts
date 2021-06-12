@@ -9,6 +9,6 @@ describe('EditBtn', () => {
         wrapper.find('.v-btn').trigger('click');
         await wrapper.vm.$nextTick()
 
-        expect(wrapper.emitted().edit).toBeTruthy()
+        expect(wrapper.emitted().click).toBeTruthy()
     })
 })

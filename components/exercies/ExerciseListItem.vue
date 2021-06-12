@@ -16,7 +16,7 @@
   >
     <v-card-title class="pa-0">{{ exercise.name }}</v-card-title>
     <div class="d-flex flex-row">
-      <EditBtn @edit="toEdit"/>
+      <EditBtn @click="toEdit"/>
       <div class="ml-2"></div>
       <DeleteBtn @delete="deleteExercise" />
     </div>
