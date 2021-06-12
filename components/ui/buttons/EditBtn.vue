@@ -8,7 +8,7 @@
         color="primary"
         v-bind="attrs"
         v-on="on"
-        @click="$emit('edit')"
+        @click.stop="$emit('edit')"
       >
         <v-icon>mdi-pencil</v-icon>
       </v-btn>
