@@ -9,6 +9,6 @@ describe('DeleteBtn', () => {
         wrapper.find('.v-btn').trigger('click');
         await wrapper.vm.$nextTick()
 
-        expect(wrapper.emitted().delete).toBeTruthy()
+        expect(wrapper.emitted().click).toBeTruthy()
     })
 })

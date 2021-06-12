@@ -18,7 +18,7 @@
     <div class="d-flex flex-row">
       <EditBtn @click="toEdit"/>
       <div class="ml-2"></div>
-      <DeleteBtn @delete="deleteExercise" />
+      <DeleteBtn @click="deleteExercise" />
     </div>
   </v-sheet>
 </template>
