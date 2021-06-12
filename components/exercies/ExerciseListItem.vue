@@ -16,7 +16,7 @@
   >
     <v-card-title class="pa-0">{{ exercise.name }}</v-card-title>
     <div class="d-flex flex-row">
-      <EditBtn />
+      <EditBtn @edit="toEdit"/>
       <div class="ml-2"></div>
       <DeleteBtn @delete="deleteExercise" />
     </div>
@@ -49,6 +49,9 @@ export default class ExercisesListItem extends Vue {
   }
   private toDetails() {
     this.$router.push(`/exercises/${this.exercise.id}`);
+  }
+  private toEdit() {
+    this.$router.push(`/exercises/${this.exercise.id}/edit`);
   }
 }
 </script>
