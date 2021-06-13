@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   codecov: codecov/codecov@1.0.2
+  heroku: circleci/heroku@1.2.4
 
 jobs:
   ci:
@@ -23,9 +24,19 @@ jobs:
           command: npm run test -- --maxWorkers=2
       - codecov/upload:
           file: ./coverage/coverage-final.json
+  "deploy to stage":
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git:
+          app-name: "dumbbell-admin-stage"
 
 workflows:
   version: 2
   workflow:
     jobs:
       - ci
+      - "deploy to stage":
+          requires:
+            - ci
