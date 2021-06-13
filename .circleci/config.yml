@@ -31,6 +31,13 @@ jobs:
       - heroku/install
       - heroku/deploy-via-git:
           app-name: "dumbbell-admin-stage"
+  "deploy to prod":
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git:
+          app-name: "dumbbell-admin"
 
 workflows:
   version: 2
@@ -40,3 +47,6 @@ workflows:
       - "deploy to stage":
           requires:
             - ci
+      - "deploy to prod":
+          requires:
+            - "deploy to stage"
