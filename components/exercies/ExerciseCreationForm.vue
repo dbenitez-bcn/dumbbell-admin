@@ -6,6 +6,7 @@
         v-model="name"
         label="Name"
         :rules="[(v) => !!v || 'Name is required']"
+        data-dt="name-input"
       ></v-text-field>
       <v-textarea
         v-model="description"
@@ -13,6 +14,7 @@
         auto-grow
         rows="1"
         :rules="[(v) => !!v || 'Description is required']"
+        data-dt="description-input"
       ></v-textarea>
       <v-subheader class="pa-0">Difficulty</v-subheader>
       <v-slider
@@ -23,6 +25,7 @@
         ticks
         color="primary-dark"
         track-color="primary"
+        data-dt="difficulty-input"
       ></v-slider>
       <div class="d-flex justify-center">
         <v-btn
