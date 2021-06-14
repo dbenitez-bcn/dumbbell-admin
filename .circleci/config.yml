@@ -49,5 +49,4 @@ workflows:
             - ci
       - "deploy to prod":
           requires:
-            # - "deploy to stage"
-            - ci
+            - "deploy to stage"
