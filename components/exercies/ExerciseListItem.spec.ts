@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import Vuex from "Vuex";
+import Vuex from "vuex";
 import Vuetify from "vuetify";
 import ExerciseListItem from "./ExerciseListItem.vue";
 import { byDT, localVue } from "~/test/TestUtils";
