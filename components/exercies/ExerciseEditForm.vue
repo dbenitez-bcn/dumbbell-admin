@@ -59,8 +59,7 @@ export default class ExerciseEditForm extends Vue {
 
   private async update() {
     await getModule(ExerciseStore, this.$store).update(new ExerciseDTO(this.exercise.name, this.exercise.description, this.exercise.difficulty, this.exercise.id));
-    // TODO: Push one back
-    this.$router.push(`/exercises/${this.exercise.id}`);
+    this.$router.back();
   }
 }
 </script>
