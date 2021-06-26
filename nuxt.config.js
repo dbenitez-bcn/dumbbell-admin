@@ -54,8 +54,8 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    //baseURL: process.env.NODE_ENV !== 'production' ? 'https://dumbbell-backend-stage.herokuapp.com' : 'https://dumbbell-backend.herokuapp.com',
-    baseURL: 'http://localhost:8080'
+    baseURL: process.env.NODE_ENV !== 'production' ? 'https://dumbbell-backend-stage.herokuapp.com' : 'https://dumbbell-backend.herokuapp.com',
+    // baseURL: 'http://localhost:8080'
   },
 
   // Nuxt auth module configuration: https://auth.nuxtjs.org/
