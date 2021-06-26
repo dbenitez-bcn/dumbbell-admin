@@ -47,6 +47,10 @@ workflows:
       - "deploy to stage":
           requires:
             - ci
+          filters:
+            branches:
+              only:
+                - main
       - "deploy to prod":
           requires:
             - "deploy to stage"
