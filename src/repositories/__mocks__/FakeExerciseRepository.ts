@@ -1,5 +1,5 @@
 import { injectable } from "inversify";
-import IExerciseRepository from "../types/IExerciseRepository";
+import IExerciseRepository from "~/repositories/types/IExerciseRepository";
 
 @injectable()
 export class FakeExerciseRepository implements IExerciseRepository {

@@ -2,7 +2,7 @@
 import { mount } from "@vue/test-utils";
 import Vuetify from "vuetify";
 import Vuex from "vuex";
-import ExerciseDTO from "../../models/types/ExerciseDTO";
+import ExerciseDTO from "~/models/types/ExerciseDTO";
 import { byDT, localVue } from "~~/test/TestUtils";
 import ExerciseCreationForm from "./ExerciseCreationForm.vue";
 describe("Exercise creation form", () => {

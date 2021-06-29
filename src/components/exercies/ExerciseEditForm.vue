@@ -40,11 +40,11 @@
 <script lang="ts">
 import Vue from "vue";
 import { Component, getModule, Prop } from "nuxt-property-decorator";
-import ExerciseVM from "../../models/viewModels/ExerciseVM";
+import ExerciseVM from "~/models/viewModels/ExerciseVM";
 import DifficultDots from "./DifficultDots.vue";
 import EditBtn from "~/components/ui/buttons/EditBtn.vue";
-import ExerciseStore from "../../store/exercise";
-import ExerciseDTO from "../../models/types/ExerciseDTO";
+import ExerciseStore from "~/store/exercise";
+import ExerciseDTO from "~/models/types/ExerciseDTO";
 
 @Component({
   components: {

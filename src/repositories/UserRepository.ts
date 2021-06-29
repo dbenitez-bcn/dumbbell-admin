@@ -1,6 +1,6 @@
 import { NuxtAxiosInstance } from "@nuxtjs/axios";
 import { inject, injectable } from "inversify";
-import { SYMBOLS } from "../core/SYMBOLS";
+import { SYMBOLS } from "~/core/SYMBOLS";
 import IUserRepository from "./types/IUserRepository";
 
 @injectable()

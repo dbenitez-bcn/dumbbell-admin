@@ -27,10 +27,10 @@
 import Vue from "vue";
 import { Component, Prop } from "nuxt-property-decorator";
 import { getModule } from "vuex-module-decorators";
-import ExerciseVM from "../../models/viewModels/ExerciseVM";
-import DeleteBtn from "../ui/buttons/DeleteBtn.vue";
-import EditBtn from "../ui/buttons/EditBtn.vue";
-import ExerciseStore from "../../store/exercise";
+import ExerciseVM from "~/models/viewModels/ExerciseVM";
+import DeleteBtn from "~/components/ui/buttons/DeleteBtn.vue";
+import EditBtn from "~/components/ui/buttons/EditBtn.vue";
+import ExerciseStore from "~/store/exercise";
 
 @Component({
   components: {

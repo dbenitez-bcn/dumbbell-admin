@@ -1,8 +1,8 @@
 import { Context } from '@nuxt/types';
 import { NuxtAxiosInstance } from '@nuxtjs/axios';
-import { container } from '../core/Container';
-import { SYMBOLS } from '../core/SYMBOLS';
-import ApiError from '../exceptions/ApiError';
+import { container } from '~/core/Container';
+import { SYMBOLS } from '~/core/SYMBOLS';
+import ApiError from '~/exceptions/ApiError';
 
 export default function ({ $axios }: Context) {
     $axios.onError(error => {

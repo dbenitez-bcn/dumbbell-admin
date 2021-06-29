@@ -1,8 +1,8 @@
-import { Module, VuexModule, Action, Mutation } from "vuex-module-decorators";
-import { lazyInject } from "../core/Container";
-import { SYMBOLS } from "../core/SYMBOLS";
-import IUserRepository from "../repositories/types/IUserRepository";
-import SessionDTO from "../models/types/SessionDTO";
+import { Module, VuexModule, Action } from "vuex-module-decorators";
+import { lazyInject } from "~/core/Container";
+import { SYMBOLS } from "~/core/SYMBOLS";
+import IUserRepository from "~/repositories/types/IUserRepository";
+import SessionDTO from "~/models/types/SessionDTO";
 
 @Module({
     name: 'session',

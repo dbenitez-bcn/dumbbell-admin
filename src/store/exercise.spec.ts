@@ -1,14 +1,14 @@
 import Vuex from 'vuex';
 import { createLocalVue } from "@vue/test-utils";
-import { container } from "../core/Container";
-import { SYMBOLS } from "../core/SYMBOLS";
-import IExerciseRepository from "../repositories/types/IExerciseRepository";
+import { container } from "~/core/Container";
+import { SYMBOLS } from "~/core/SYMBOLS";
+import IExerciseRepository from "~/repositories/types/IExerciseRepository";
 import { getModule } from 'vuex-module-decorators';
 import ExerciseStore from './exercise';
-import { FakeExerciseRepository } from '../repositories/__mocks__/FakeExerciseRepository';
-import Exercise from '../models/domain/Exercise';
-import ExerciseVM from '../models/viewModels/ExerciseVM';
-import ExerciseDTO from '../models/types/ExerciseDTO';
+import { FakeExerciseRepository } from '~/repositories/__mocks__/FakeExerciseRepository';
+import Exercise from '~/models/domain/Exercise';
+import ExerciseVM from '~/models/viewModels/ExerciseVM';
+import ExerciseDTO from '~/models/types/ExerciseDTO';
 
 describe("Exercise store", () => {
     const AN_EXERCISE = new Exercise(1, "name", "description", 7);

@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import ExerciseVM from '../../models/viewModels/ExerciseVM';
+import ExerciseVM from '~/models/viewModels/ExerciseVM';
 import ExerciseDetails from "./ExerciseDetails.vue";
 
 describe('Exercise details', () => {

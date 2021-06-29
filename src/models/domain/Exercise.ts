@@ -1,4 +1,4 @@
-import ExerciseVM from "../viewModels/ExerciseVM";
+import ExerciseVM from "~/models/viewModels/ExerciseVM";
 
 export default class Exercise {
     constructor(

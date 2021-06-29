@@ -15,9 +15,9 @@
 import Vue from "vue";
 import { Component } from "nuxt-property-decorator";
 import { getModule } from "vuex-module-decorators";
-import ExerciseStore from "../../store/exercise";
-import Spinner from "../ui/Spinner.vue";
-import KettlyError from "../ui/KettlyError.vue";
+import ExerciseStore from "~/store/exercise";
+import Spinner from "~/components/ui/Spinner.vue";
+import KettlyError from "~/components/ui/KettlyError.vue";
 import ExercisesListItem from "./ExerciseListItem.vue";
 
 @Component({

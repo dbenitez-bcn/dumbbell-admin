@@ -1,7 +1,7 @@
 import { createLocalVue, shallowMount } from "@vue/test-utils";
 import Vuex from "vuex";
 import ExercisesList from "./ExercisesList.vue";
-import { localVue } from "../../../test/TestUtils";
+import { localVue } from "~~/test/TestUtils";
 
 describe("Exercises list", () => {
     const exerciseStore = {

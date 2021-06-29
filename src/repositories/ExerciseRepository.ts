@@ -1,7 +1,7 @@
 import { NuxtAxiosInstance } from "@nuxtjs/axios";
 import { inject, injectable } from "inversify";
-import { SYMBOLS } from "../core/SYMBOLS";
-import Exercise from "../models/domain/Exercise";
+import { SYMBOLS } from "~/core/SYMBOLS";
+import Exercise from "~/models/domain/Exercise";
 import IExerciseRepository from "./types/IExerciseRepository";
 
 @injectable()
