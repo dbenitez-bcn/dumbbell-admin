@@ -9,7 +9,8 @@
     "generate": "nuxt generate",
     "test": "jest --coverage --verbose",
     "json-server": "node json-server/server.js",
-    "clear-api": "cat json-server/api.default.json > json-server/api.json"
+    "clear-api": "cat json-server/api.default.json > json-server/api.json",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@nuxtjs/auth-next": "5.0.0-1621716493.b9b36c6",
