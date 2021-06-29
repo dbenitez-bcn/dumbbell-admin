@@ -1,4 +1,4 @@
-import { light } from "./theme";
+import { light } from "./src/theme";
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -13,7 +13,8 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
+  // Custom src directory: https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-srcdir
+  srcDir: 'src/',
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/styles.scss'
@@ -24,7 +25,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    'plugins/axiosSetup.ts'
+    '~/plugins/axiosSetup.ts'
   ],
 
   // Router property -  https://nuxtjs.org/docs/2.x/features/file-system-routing#the-router-property
