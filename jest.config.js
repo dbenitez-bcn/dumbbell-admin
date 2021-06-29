@@ -1,4 +1,7 @@
 module.exports = {
+  "roots": [
+    "<rootDir>/src"
+  ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^~/(.*)$': '<rootDir>/src/$1',
