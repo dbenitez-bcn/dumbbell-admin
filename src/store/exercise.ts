@@ -1,9 +1,9 @@
 import { Module, VuexModule, Action, Mutation } from "vuex-module-decorators";
 import { lazyInject } from "~/core/Container";
 import { SYMBOLS } from "~/core/SYMBOLS";
-import Exercise from "~/models/domain/Exercise";
-import ExerciseDTO from "~/models/types/ExerciseDTO";
-import ExerciseVM from "~/models/viewModels/ExerciseVM";
+import Exercise from "~/domain/models/Exercise";
+import ExerciseDTO from "~/domain/types/ExerciseDTO";
+import ExerciseVM from "~/domain/viewModels/ExerciseVM";
 import IExerciseRepository from "~/repositories/types/IExerciseRepository";
 
 @Module({

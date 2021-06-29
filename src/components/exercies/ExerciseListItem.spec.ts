@@ -3,7 +3,7 @@ import Vuex from "vuex";
 import Vuetify from "vuetify";
 import ExerciseListItem from "./ExerciseListItem.vue";
 import { byDT, localVue } from "~~/test/TestUtils";
-import ExerciseVM from "~/models/viewModels/ExerciseVM";
+import ExerciseVM from "~/domain/viewModels/ExerciseVM";
 describe("Exercise List Item", () => {
     const $router = {
         push: jest.fn()

@@ -42,7 +42,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { getModule } from "vuex-module-decorators";
-import SessionDTO from "~/models/types/SessionDTO";
+import SessionDTO from "~/domain/types/SessionDTO";
 import SessionStore from "~/store/session";
 
 @Component

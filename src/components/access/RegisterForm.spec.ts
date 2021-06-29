@@ -1,7 +1,7 @@
 import { createLocalVue, mount } from "@vue/test-utils";
 import Vuetify from 'vuetify';
 import Vuex from 'vuex';
-import SessionDTO from "~/models/types/SessionDTO";
+import SessionDTO from "~/domain/types/SessionDTO";
 import { byDT } from "~~/test/TestUtils";
 import RegisterForm from "./RegisterForm.vue";
 

@@ -12,7 +12,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { Component, getModule } from "nuxt-property-decorator";
-import ExerciseVM from "~/models/viewModels/ExerciseVM";
+import ExerciseVM from "~/domain/viewModels/ExerciseVM";
 import ExerciseStore from "~/store/exercise";
 import KettlyError from "~/components/ui/KettlyError.vue";
 import Spinner from "~/components/ui/Spinner.vue";

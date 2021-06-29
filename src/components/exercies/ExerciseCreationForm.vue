@@ -45,7 +45,7 @@
 import Vue from "vue";
 import { Component, getModule } from "nuxt-property-decorator";
 import ExerciseStore from "~/store/exercise";
-import ExerciseDTO from "~/models/types/ExerciseDTO";
+import ExerciseDTO from "~/domain/types/ExerciseDTO";
 
 @Component
 export default class ExerciseCreationForm extends Vue {

@@ -6,9 +6,9 @@ import IExerciseRepository from "~/repositories/types/IExerciseRepository";
 import { getModule } from 'vuex-module-decorators';
 import ExerciseStore from './exercise';
 import { FakeExerciseRepository } from '~/repositories/__mocks__/FakeExerciseRepository';
-import Exercise from '~/models/domain/Exercise';
-import ExerciseVM from '~/models/viewModels/ExerciseVM';
-import ExerciseDTO from '~/models/types/ExerciseDTO';
+import Exercise from '~/domain/models/Exercise';
+import ExerciseVM from '~/domain/viewModels/ExerciseVM';
+import ExerciseDTO from '~/domain/types/ExerciseDTO';
 
 describe("Exercise store", () => {
     const AN_EXERCISE = new Exercise(1, "name", "description", 7);

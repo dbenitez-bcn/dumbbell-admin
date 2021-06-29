@@ -1,5 +1,5 @@
 import { NuxtAxiosInstance } from "@nuxtjs/axios";
-import Exercise from "~/models/domain/Exercise";
+import Exercise from "~/domain/models/Exercise";
 import ExerciseRepository from "./ExerciseRepository";
 
 describe("Exercise repository", () => {

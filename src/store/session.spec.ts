@@ -6,7 +6,7 @@ import { SYMBOLS } from "~/core/SYMBOLS";
 import IUserRepository from "~/repositories/types/IUserRepository";
 import { FakeUserRepository } from "~/repositories/__mocks__/UserRepository";
 import SessionStore from './session';
-import SessionDTO from '~/models/types/SessionDTO';
+import SessionDTO from '~/domain/types/SessionDTO';
 
 describe("Session store", () => {
     let sut: SessionStore;

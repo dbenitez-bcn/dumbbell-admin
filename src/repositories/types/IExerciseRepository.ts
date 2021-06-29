@@ -1,4 +1,4 @@
-import Exercise from "~/models/domain/Exercise";
+import Exercise from "~/domain/models/Exercise";
 
 export default interface IExerciseRepository {
     getAll(): Promise<Exercise[]>;
