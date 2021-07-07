@@ -3,10 +3,11 @@
     <v-sheet outlined rounded class="pa-4">
       <div class="d-flex flex-row align-center">
         <h2 class="grey--text text--darken-1 mr-2">#{{ exercise.id }}</h2>
-      <v-text-field
-        v-model="exercise.name"
-        :rules="[(v) => !!v || 'Name is required']"
-      ></v-text-field>
+        <v-text-field
+          v-model="exercise.name"
+          :rules="[(v) => !!v || 'Name is required']"
+          data-dt="name-input"
+        ></v-text-field>
       </div>
       <div class="d-flex flex-row py-4">
         <v-card-subtitle class="pa-0 mr-2">Difficulty</v-card-subtitle>
@@ -27,12 +28,17 @@
         auto-grow
         rows="1"
         :rules="[(v) => !!v || 'Description is required']"
+        data-dt="description-input"
       ></v-textarea>
     </v-sheet>
     <div class="d-flex justify-center pt-4">
-      <v-btn 
-          :disabled="!isValid"
-          color="primary" @click="update">Updatee</v-btn>
+      <v-btn
+        :disabled="!isValid"
+        color="primary"
+        @click="update"
+        data-dt="update-btn"
+        >Updatee</v-btn
+      >
     </div>
   </v-form>
 </template>
@@ -58,7 +64,14 @@ export default class ExerciseEditForm extends Vue {
   private isValid: boolean = false;
 
   private async update() {
-    await getModule(ExerciseStore, this.$store).update(new ExerciseDTO(this.exercise.name, this.exercise.description, this.exercise.difficulty, this.exercise.id));
+    await getModule(ExerciseStore, this.$store).update(
+      new ExerciseDTO(
+        this.exercise.name,
+        this.exercise.description,
+        this.exercise.difficulty,
+        this.exercise.id
+      )
+    );
     this.$router.back();
   }
 }

@@ -1,5 +1,9 @@
 <template>
-  <div class="expandable-container" :class="getContainerClass()">
+  <div
+    class="expandable-container"
+    :class="getContainerClass()"
+    data-dt="expandable-fab"
+  >
     <div data-dt="button" class="icon clickable" @click="toggle">
       <v-icon
         large

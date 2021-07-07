@@ -9,6 +9,7 @@
         v-bind="attrs"
         v-on="on"
         @click.stop="$emit('click')"
+        data-dt="edit-btn"
       >
         <v-icon>mdi-pencil</v-icon>
       </v-btn>

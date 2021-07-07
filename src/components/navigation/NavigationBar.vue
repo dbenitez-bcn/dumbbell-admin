@@ -7,6 +7,7 @@
           :key="i"
           nuxt
           :to="item.to"
+          :data-dt="item.title + '-nav-btn'"
         >
           <v-list-item-icon>
             <v-icon v-text="item.icon"></v-icon>
@@ -29,8 +30,8 @@ import LogoutButton from "./LogoutButton.vue";
 
 @Component({
   components: {
-LogoutButton
-  }
+    LogoutButton,
+  },
 })
 export default class NavigationBar extends Vue {
   private navButtons = [

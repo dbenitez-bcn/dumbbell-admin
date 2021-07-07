@@ -13,10 +13,11 @@
       my-2
     "
     @click="toDetails()"
+    data-dt="exercise-list-item"
   >
     <v-card-title class="pa-0">{{ exercise.name }}</v-card-title>
     <div class="d-flex flex-row">
-      <EditBtn @click="toEdit"/>
+      <EditBtn @click="toEdit" />
       <div class="ml-2"></div>
       <DeleteBtn @click="deleteExercise" />
     </div>

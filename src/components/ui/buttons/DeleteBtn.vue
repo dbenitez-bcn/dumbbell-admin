@@ -9,6 +9,7 @@
         v-bind="attrs"
         v-on="on"
         @click.stop="$emit('click')"
+        data-dt="delete-btn"
       >
         <v-icon>mdi-delete</v-icon>
       </v-btn>
