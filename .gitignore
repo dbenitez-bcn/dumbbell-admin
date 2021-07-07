@@ -96,3 +96,6 @@ sw.*
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
+
+### Json server ###
+json-server/api.json
