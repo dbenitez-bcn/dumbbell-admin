@@ -8,7 +8,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "test": "jest --coverage --verbose",
-    "json-server": "node json-server/server.js",
+    "json-server": "npm run clear-api && node json-server/server.js",
     "clear-api": "cat json-server/api.default.json > json-server/api.json",
     "cypress:open": "cypress open"
   },
