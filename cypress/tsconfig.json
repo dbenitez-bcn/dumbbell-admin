@@ -1,7 +1,11 @@
 {
-    "extends": "../tsconfig.json",
     "compilerOptions": {
+      "paths": {
+        "~~/*": ["../*"]
+      },
       "noEmit": true,
+      "target": "es5",
+      "lib": ["es5", "dom"],
       "types": ["cypress"]
     },
     "include": [
