@@ -1,7 +1,4 @@
 module.exports = {
-  "roots": [
-    "<rootDir>/src"
-  ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^~/(.*)$': '<rootDir>/src/$1',
@@ -25,5 +22,6 @@ module.exports = {
     '<rootDir>/src/**/*.ts',
     '<rootDir>/src/**/*.vue'
   ],
-  setupFilesAfterEnv: ['./jest.setup.ts']
+  setupFilesAfterEnv: ['./jest.setup.ts'],
+  testPathIgnorePatterns: ["/node_modules/", "<rootDir>/cypress"]
 }
