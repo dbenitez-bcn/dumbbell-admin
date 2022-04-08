@@ -13,9 +13,11 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import Component from "vue-class-component";
+import { Component } from "nuxt-property-decorator";
 
-@Component
+@Component({
+  layout: "access"
+})
 export default class AccessPage extends Vue {}
 </script>
 <style lang="scss" scoped>
