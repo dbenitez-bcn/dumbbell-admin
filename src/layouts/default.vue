@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <NavigationBar v-if="$auth.loggedIn" />
+    <NavigationBar />
     <v-main class="grey lighten-5">
       <Nuxt />
     </v-main>
@@ -9,8 +9,12 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import NavigationBar from "~/components/navigation/NavigationBar.vue";
 
 @Component({
+  components: {
+    NavigationBar
+  },
   errorCaptured: function (err) {
     alert(err);
     return false;
