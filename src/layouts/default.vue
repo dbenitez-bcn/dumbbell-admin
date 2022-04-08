@@ -10,15 +10,13 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import NavigationBar from "~/components/navigation/NavigationBar.vue";
+import errorCaptured from "~/exceptions/vueErrorCaptured";
 
 @Component({
   components: {
     NavigationBar
   },
-  errorCaptured: function (err) {
-    alert(err);
-    return false;
-  },
+  errorCaptured,
 })
 export default class DefaultLayout extends Vue {}
 </script>

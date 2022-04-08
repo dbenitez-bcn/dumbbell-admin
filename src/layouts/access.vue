@@ -8,12 +8,10 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import errorCaptured from "~/exceptions/vueErrorCaptured";
 
 @Component({
-  errorCaptured: function (err) {
-    alert(err);
-    return false;
-  },
+  errorCaptured
 })
 export default class DefaultLayout extends Vue {}
 </script>
