@@ -1,10 +1,8 @@
 import { NuxtAxiosInstance } from "@nuxtjs/axios";
+import { axios } from "~~/test/TestUtils";
 import UserRepository from "./UserRepository"
 
 describe("UserRepository", () => {
-    const axios = {
-        $post: jest.fn()
-    };
     const sut = new UserRepository(axios as unknown as NuxtAxiosInstance);
     beforeEach(() => {
         jest.clearAllMocks();

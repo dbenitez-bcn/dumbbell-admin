@@ -8,4 +8,11 @@ function byDT(tag: string): string {
 const localVue = createLocalVue();
 localVue.use(Vuex);
 
-export { byDT, localVue };
+const axios = {
+    $get: jest.fn(),
+    $delete: jest.fn(),
+    $post: jest.fn(),
+    $put: jest.fn()
+}
+
+export { byDT, localVue, axios };

@@ -1,5 +1,6 @@
 import { NuxtAxiosInstance } from "@nuxtjs/axios";
 import Exercise from "~/domain/models/Exercise";
+import { axios } from "~~/test/TestUtils";
 import ExerciseRepository from "./ExerciseRepository";
 
 describe("Exercise repository", () => {
@@ -10,12 +11,7 @@ describe("Exercise repository", () => {
         difficulty: 7,
         id: 1
     };
-    const axios = {
-        $get: jest.fn(),
-        $delete: jest.fn(),
-        $post: jest.fn(),
-        $put: jest.fn()
-    }
+    
     const sut = new ExerciseRepository(axios as unknown as NuxtAxiosInstance);
 
     beforeEach(() => {
