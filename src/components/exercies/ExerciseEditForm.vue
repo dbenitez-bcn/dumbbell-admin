@@ -4,6 +4,7 @@
       <div class="d-flex flex-row align-center">
         <h2 class="grey--text text--darken-1 mr-2">#{{ exercise.id }}</h2>
       <v-text-field
+      data-dt="name-input"
         v-model="exercise.name"
         :rules="[(v) => !!v || 'Name is required']"
       ></v-text-field>
@@ -23,6 +24,7 @@
       ></v-slider>
       <v-card-subtitle class="pa-0">Description</v-card-subtitle>
       <v-textarea
+      data-dt="description-input"
         v-model="exercise.description"
         auto-grow
         rows="1"
@@ -30,7 +32,8 @@
       ></v-textarea>
     </v-sheet>
     <div class="d-flex justify-center pt-4">
-      <v-btn 
+      <v-btn
+      data-dt="submit-btn"
           :disabled="!isValid"
           color="primary" @click="update">Updatee</v-btn>
     </div>
