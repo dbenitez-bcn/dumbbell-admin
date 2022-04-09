@@ -4,17 +4,18 @@
     rounded
     class="
       exercise-card
-      clickable
       d-flex
       flex-row
       align-center
       justify-space-between
-      pa-2
+      px-2
       my-2
     "
-    @click="toDetails()"
   >
-    <v-card-title class="pa-0">{{ exercise.name }}</v-card-title>
+  <v-spacer class="py-3 clickable" 
+    @click="toDetails()">
+    <v-card-title data-dt="exercise-title" class="pa-0">{{ exercise.name }}</v-card-title>
+  </v-spacer>
     <div class="d-flex flex-row">
       <EditBtn @click="toEdit"/>
       <div class="ml-2"></div>
