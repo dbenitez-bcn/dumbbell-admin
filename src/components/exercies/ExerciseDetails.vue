@@ -16,7 +16,7 @@
       <span>{{ exercise.description }}</span>
     </v-sheet>
     <div class="d-flex justify-center pt-4">
-      <v-btn color="error" @click="deleteExercise">Delete</v-btn>
+      <v-btn data-dt="delete-btn" color="error" @click="deleteExercise">Delete</v-btn>
     </div>
   </div>
 </template>
