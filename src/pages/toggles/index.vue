@@ -1,6 +1,6 @@
 <template>
   <div class="fill-parent pa-6">
-    <h1>Toggles</h1>
+    <TogglesList/>
     <ExpandableFab>
       <ToggleCreationForm />
     </ExpandableFab>
@@ -12,11 +12,13 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import ExpandableFab from "~/components/ui/buttons/ExpandableFab.vue";
 import ToggleCreationForm from "~/components/toggles/ToggleCreationForm.vue";
+import TogglesList from "~/components/toggles/TogglesList.vue";
 
 @Component({
   components: {
     ExpandableFab,
-    ToggleCreationForm
+    ToggleCreationForm,
+    TogglesList
   },
 })
 export default class TogglesPage extends Vue {}
