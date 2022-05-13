@@ -25,4 +25,24 @@ describe("Toggle repository", () => {
             expect(got).toStrictEqual(new Toggle("TEST_TOGGLE", false));
         })
     })
+
+    describe("getAll", () => {
+        let got: Toggle[];
+
+        beforeAll(async () => {
+            axios.$get.mockResolvedValue([{
+                "name": "TEST_TOGGLE",
+                "value": false
+            }]);
+
+            got = await sut.getAll();
+        })
+        it("Should return all toggles", () => {
+            expect(got).toContainEqual(new Toggle("TEST_TOGGLE", false));
+        })
+
+        it("Should call API", () => {
+            expect(axios.$get).toBeCalled();
+        })
+    })
 })

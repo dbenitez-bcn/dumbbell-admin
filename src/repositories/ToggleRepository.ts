@@ -17,6 +17,12 @@ export default class ToggleRepository implements IToggleRepository {
         }).then(this.toToggle)
     }
 
+    async getAll(): Promise<Toggle[]> {
+        return await this.axios
+        .$get("/toggle")
+        .then(list => list.map(this.toToggle));
+    }
+
     private toToggle(exercise: any): Toggle {
         return new Toggle(exercise.name, exercise.value);
     }
