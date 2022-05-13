@@ -25,6 +25,13 @@ export default class TogglesStore extends VuexModule {
         this.add(await this.repository.create(dto.name.toUpperCase().replace(" ", "_"), false));
     }
 
+    @Action({rawError: true})
+    async fetchToggles() {
+        await this.repository
+        .getAll()
+        .then(list => list.map(this.add));
+    }
+
     get toggles(): ToggleVM[] {
         return this.list.map(toggle => toggle.toVM());
     }

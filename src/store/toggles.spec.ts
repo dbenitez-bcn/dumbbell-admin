@@ -50,4 +50,18 @@ describe("Toggles store", () => {
             expect(sut.toggles).toContainEqual(new ToggleVM("TEST_TOGGLE", false));
         })
     })
+
+    describe("When toggles are requested", () => {
+        beforeAll(async () => {
+            repository.getAll.mockResolvedValue([A_TOGGLE]);
+            await sut.fetchToggles();
+        })
+
+        it("should call repository", () => {
+            expect(repository.getAll).toBeCalled();
+        })
+        it("should list all toggles", () => {
+            expect(sut.toggles).toContainEqual(new ToggleVM("TEST_TOGGLE", false));
+        })
+    })
 })
