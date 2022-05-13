@@ -1,0 +1,58 @@
+import { mount } from "@vue/test-utils";
+import Vuex from "vuex";
+import Vuetify from "vuetify";
+import ToggleListItem from "./ToggleListItem.vue";
+import { byDT, localVue } from "~~/test/TestUtils";
+import ToggleVM from "~/domain/viewModels/ToggleVM";
+describe("Toggle List Item", () => {
+    const confirmSpy = jest.spyOn(window, 'confirm');
+    const $router = {
+        push: jest.fn()
+    };
+    const toggleStore = {
+        namespaced: true,
+        actions: {
+            delete: jest.fn()
+        }
+    };
+    const store = new Vuex.Store({
+        modules: {
+            toggle: toggleStore
+        }
+    });
+    const sut = mount(ToggleListItem, {
+        propsData: {
+            toggle: new ToggleVM("TEST_TOGGLE", false)
+        },
+        store,
+        localVue,
+        vuetify: new Vuetify(),
+        mocks: {
+            $router
+        }
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
+        jest.clearAllTimers();
+    })
+
+    it("should delete the toggle when user acepts ", async () => {
+        confirmSpy.mockImplementation(jest.fn(() => true));
+
+        await sut.findAll(".v-btn").trigger("click");
+
+        // expect(toggleStore.actions.delete).toBeCalledWith(expect.anything(), 1);
+        expect(confirmSpy).toBeCalledWith("Do you want to delete toggle?");
+    })
+
+    it("should not delete the toggle when user cancel", async () => {
+        confirmSpy.mockImplementation(jest.fn(() => false));
+
+        await sut.findAll(".v-btn").trigger("click");
+
+        // expect(toggleStore.actions.delete).not.toBeCalled();
+    })
+
+    
+})
