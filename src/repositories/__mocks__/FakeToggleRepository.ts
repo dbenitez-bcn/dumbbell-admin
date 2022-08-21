@@ -5,4 +5,6 @@ import IToggleRepository from "../types/IToggleRepository";
 export default class FakeToggleRepository implements IToggleRepository {
     create = jest.fn();
     getAll = jest.fn();
+    delete = jest.fn();
+    update = jest.fn();
 }
