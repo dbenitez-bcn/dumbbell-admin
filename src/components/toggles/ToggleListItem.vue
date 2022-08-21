@@ -18,8 +18,7 @@
       }}</v-card-title>
     </v-spacer>
     <div class="d-flex flex-row align-center">
-      <!-- <EditBtn @click="toEdit"/> -->
-      <v-switch v-model="toggle.value" @change="edit"></v-switch>
+      <v-switch data-dt="toggle-switch" v-model="toggle.value" @change="update"></v-switch>
       <div class="ml-2"></div>
       <DeleteBtn @click="deleteToggle" />
     </div>
@@ -34,6 +33,7 @@ import ToggleVM from "~/domain/viewModels/ToggleVM";
 import DeleteBtn from "~/components/ui/buttons/DeleteBtn.vue";
 import EditBtn from "~/components/ui/buttons/EditBtn.vue";
 import ToggleStore from "~/store/toggles";
+import ToggleUpdateDTO from "~/domain/types/ToggleUpdateDTO";
 
 @Component({
   components: {
@@ -47,12 +47,12 @@ export default class TogglesListItem extends Vue {
 
   private async deleteToggle() {
     if (window.confirm("Do you want to delete toggle?")) {
-      // TODO: Call store
-      // await getModule(ToggleStore, this.$store).delete(this.toggle.name);
+      await getModule(ToggleStore, this.$store).delete(this.toggle.name);
     }
   }
-  private async edit(newValue: boolean) {
-      // TODO: Call store    
+  private async update(newValue: boolean) {
+      await getModule(ToggleStore, this.$store).update(new ToggleUpdateDTO(this.toggle.name, newValue));
+
   }
 }
 </script>

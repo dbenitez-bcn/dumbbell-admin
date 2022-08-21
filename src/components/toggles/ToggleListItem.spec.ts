@@ -4,6 +4,7 @@ import Vuetify from "vuetify";
 import ToggleListItem from "./ToggleListItem.vue";
 import { byDT, localVue } from "~~/test/TestUtils";
 import ToggleVM from "~/domain/viewModels/ToggleVM";
+import ToggleUpdateDTO from "~/domain/types/ToggleUpdateDTO";
 describe("Toggle List Item", () => {
     const confirmSpy = jest.spyOn(window, 'confirm');
     const $router = {
@@ -12,12 +13,13 @@ describe("Toggle List Item", () => {
     const toggleStore = {
         namespaced: true,
         actions: {
-            delete: jest.fn()
+            delete: jest.fn(),
+            update: jest.fn()
         }
     };
     const store = new Vuex.Store({
         modules: {
-            toggle: toggleStore
+            toggles: toggleStore
         }
     });
     const sut = mount(ToggleListItem, {
@@ -42,7 +44,7 @@ describe("Toggle List Item", () => {
 
         await sut.findAll(".v-btn").trigger("click");
 
-        // expect(toggleStore.actions.delete).toBeCalledWith(expect.anything(), 1);
+        expect(toggleStore.actions.delete).toBeCalledWith(expect.anything(), "TEST_TOGGLE");
         expect(confirmSpy).toBeCalledWith("Do you want to delete toggle?");
     })
 
@@ -51,7 +53,13 @@ describe("Toggle List Item", () => {
 
         await sut.findAll(".v-btn").trigger("click");
 
-        // expect(toggleStore.actions.delete).not.toBeCalled();
+        expect(toggleStore.actions.delete).not.toBeCalled();
+    })
+
+    it("should update the toggle when switch triggered", async () => {
+        await sut.find(byDT("toggle-switch")).trigger("click");
+
+        expect(toggleStore.actions.update).toBeCalledWith(expect.anything(), new ToggleUpdateDTO("TEST_TOGGLE", true));
     })
 
     
