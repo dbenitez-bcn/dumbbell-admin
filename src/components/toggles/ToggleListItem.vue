@@ -18,9 +18,13 @@
       }}</v-card-title>
     </v-spacer>
     <div class="d-flex flex-row align-center">
-      <v-switch data-dt="toggle-switch" v-model="toggle.value" @change="update"></v-switch>
+      <v-switch
+        data-dt="toggle-switch"
+        v-model="toggle.value"
+        @change="update"
+      ></v-switch>
       <div class="ml-2"></div>
-      <DeleteBtn @click="deleteToggle" />
+      <DeleteBtn v-if="isTesterinoEnabled" @click="deleteToggle" />
     </div>
   </v-sheet>
 </template>
@@ -45,14 +49,20 @@ export default class TogglesListItem extends Vue {
   @Prop()
   private readonly toggle!: ToggleVM;
 
+  private isTesterinoEnabled: any = null;
+
   private async deleteToggle() {
     if (window.confirm("Do you want to delete toggle?")) {
       await getModule(ToggleStore, this.$store).delete(this.toggle.name);
     }
   }
   private async update(newValue: boolean) {
-      await getModule(ToggleStore, this.$store).update(new ToggleUpdateDTO(this.toggle.name, newValue));
-
+    await getModule(ToggleStore, this.$store).update(
+      new ToggleUpdateDTO(this.toggle.name, newValue)
+    );
+  }
+  private async created() {
+    this.isTesterinoEnabled = await this.$toggles.isTesterinoEnabled();
   }
 }
 </script>
