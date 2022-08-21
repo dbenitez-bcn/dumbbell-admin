@@ -24,7 +24,7 @@
         @change="update"
       ></v-switch>
       <div class="ml-2"></div>
-      <DeleteBtn v-if="isTesterinoEnabled" @click="deleteToggle" />
+      <DeleteBtn @click="deleteToggle" />
     </div>
   </v-sheet>
 </template>
@@ -49,7 +49,6 @@ export default class TogglesListItem extends Vue {
   @Prop()
   private readonly toggle!: ToggleVM;
 
-  private isTesterinoEnabled: any = null;
 
   private async deleteToggle() {
     if (window.confirm("Do you want to delete toggle?")) {
@@ -60,9 +59,6 @@ export default class TogglesListItem extends Vue {
     await getModule(ToggleStore, this.$store).update(
       new ToggleUpdateDTO(this.toggle.name, newValue)
     );
-  }
-  private async created() {
-    this.isTesterinoEnabled = await this.$toggles.isTesterinoEnabled();
   }
 }
 </script>

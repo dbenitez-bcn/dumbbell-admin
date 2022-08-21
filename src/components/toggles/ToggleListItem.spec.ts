@@ -26,11 +26,6 @@ describe("Toggle List Item", () => {
         propsData: {
             toggle: new ToggleVM("TEST_TOGGLE", false)
         },
-        data() {
-            return {
-                isTesterinoEnabled: true
-            }
-        },
         store,
         localVue,
         vuetify: new Vuetify(),
