@@ -42,7 +42,31 @@ describe("Toggle repository", () => {
         })
 
         it("Should call API", () => {
-            expect(axios.$get).toBeCalled();
+            expect(axios.$get).toBeCalledWith("/toggle");
+        })
+    })
+
+    describe("delete", () => {
+        let got: Toggle[];
+
+        beforeAll(async () => {
+            await sut.delete("TEST_TOGGLE");
+        })
+
+        it("Should call API", () => {
+            expect(axios.$delete).toBeCalledWith("/toggle/TEST_TOGGLE");
+        })
+    })
+
+    describe("update", () => {
+        let got: Toggle[];
+
+        beforeAll(async () => {
+            await sut.update("TEST_TOGGLE", true);
+        })
+
+        it("Should call API", () => {
+            expect(axios.$put).toBeCalledWith("/toggle/TEST_TOGGLE", { value: true });
         })
     })
 })

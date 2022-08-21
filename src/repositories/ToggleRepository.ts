@@ -23,6 +23,16 @@ export default class ToggleRepository implements IToggleRepository {
         .then(list => list.map(this.toToggle));
     }
 
+    async update(name: string, value: boolean): Promise<void> {
+        return await this.axios.$put("/toggle/" + name, {
+            value
+        });
+    }
+
+    async delete(name: string): Promise<void> {
+        return await this.axios.$delete("/toggle/" + name);
+    }
+    
     private toToggle(exercise: any): Toggle {
         return new Toggle(exercise.name, exercise.value);
     }
