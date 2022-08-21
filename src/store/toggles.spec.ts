@@ -9,6 +9,7 @@ import IToggleRepository from '~/repositories/types/IToggleRepository';
 import ToggleDTO from '~/domain/types/ToggleDTO';
 import Toggle from '~/domain/models/Toggle';
 import ToggleVM from '~/domain/viewModels/ToggleVM';
+import ToggleUpdateDTO from '~/domain/types/ToggleUpdateDTO';
 
 describe("Toggles store", () => {
     const A_TOGGLE = new Toggle("TEST_TOGGLE", false);
@@ -62,6 +63,32 @@ describe("Toggles store", () => {
         })
         it("should list all toggles", () => {
             expect(sut.toggles).toContainEqual(new ToggleVM("TEST_TOGGLE", false));
+        })
+    })
+
+    describe("when toggle is deleted", () => {
+        beforeAll(async () => {
+            repository.create.mockResolvedValue(A_TOGGLE);
+            await sut.create(new ToggleDTO("test toggle"))
+            await sut.delete("TEST_TOGGLE")
+
+        })
+        it("should call api", () => {
+            expect(repository.delete).toBeCalledWith("TEST_TOGGLE");
+        })
+
+        it("Should erase it from the list", () => {
+            expect(sut.toggles).not.toContain(new ToggleVM("TEST_TOGGLE", false));
+        })
+    })
+
+    describe("when toggle is updated", () => {
+        beforeAll(async () => {
+            await sut.update(new ToggleUpdateDTO("TEST_TOGGLE", false))
+
+        })
+        it("should call api", () => {
+            expect(repository.update).toBeCalledWith("TEST_TOGGLE", false);
         })
     })
 })

@@ -5,6 +5,7 @@ import Toggle from "~/domain/models/Toggle";
 import ToggleVM from "~/domain/viewModels/ToggleVM";
 import ToggleDTO from "~/domain/types/ToggleDTO";
 import IToggleRepository from "~/repositories/types/IToggleRepository";
+import ToggleUpdateDTO from "~/domain/types/ToggleUpdateDTO";
 
 @Module({
     name: 'toggles',
@@ -20,9 +21,25 @@ export default class TogglesStore extends VuexModule {
         this.list.push(toggle);
     }
 
+    @Mutation
+    private popById(name: string) {
+        this.list = this.list.filter(toggle => toggle.name != name);
+    }
+
     @Action({rawError: true})
     async create(dto: ToggleDTO) {
         this.add(await this.repository.create(dto.name.toUpperCase().replace(" ", "_"), false));
+    }
+
+    @Action({rawError: true})
+    async delete(name: string) {
+        await this.repository.delete(name);
+        this.popById(name);
+    }
+
+    @Action({rawError: true})
+    async update(dto: ToggleUpdateDTO) {
+        await this.repository.update(dto.name, dto.value);
     }
 
     @Action({rawError: true})
