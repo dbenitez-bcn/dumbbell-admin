@@ -26,6 +26,11 @@ describe("Toggle List Item", () => {
         propsData: {
             toggle: new ToggleVM("TEST_TOGGLE", false)
         },
+        data() {
+            return {
+                isTesterinoEnabled: true
+            }
+        },
         store,
         localVue,
         vuetify: new Vuetify(),
@@ -62,5 +67,5 @@ describe("Toggle List Item", () => {
         expect(toggleStore.actions.update).toBeCalledWith(expect.anything(), new ToggleUpdateDTO("TEST_TOGGLE", true));
     })
 
-    
+
 })
