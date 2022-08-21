@@ -22,6 +22,11 @@ export default class TogglesStore extends VuexModule {
     }
 
     @Mutation
+    private setToggles(toggles: Toggle[]) {
+        this.list = toggles;
+    }
+
+    @Mutation
     private popById(name: string) {
         this.list = this.list.filter(toggle => toggle.name != name);
     }
@@ -46,7 +51,7 @@ export default class TogglesStore extends VuexModule {
     async fetchToggles() {
         await this.repository
         .getAll()
-        .then(list => list.map(this.add));
+        .then(this.setToggles);
     }
 
     get toggles(): ToggleVM[] {
