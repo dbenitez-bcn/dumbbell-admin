@@ -25,7 +25,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/axiosSetup.ts'
+    '~/plugins/axiosSetup.ts',
+    '~/plugins/togglesSetup.ts'
   ],
 
   // Router property -  https://nuxtjs.org/docs/2.x/features/file-system-routing#the-router-property
