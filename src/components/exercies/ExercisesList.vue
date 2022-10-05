@@ -1,14 +1,23 @@
 <template>
-  <Spinner v-if="$fetchState.pending" />
-  <div v-else-if="exercises.length > 0">
+  <div>
     <h1>Exercises</h1>
-    <ExercisesListItem
-      v-for="exercise of exercises"
-      :key="exercise.id"
-      :exercise="exercise"
-    />
+    <Spinner v-if="$fetchState.pending" />  
+    <div v-else-if="exercises.length > 0">
+      <ExercisesListItem
+        v-for="exercise of exercises"
+        :key="exercise.id"
+        :exercise="exercise"
+      />
+    </div>
+    <KettlyError v-else :message="'Kettly couldn\'t find exercises'" />
+    <v-pagination
+      v-model="page"
+      :length="length"
+      @next="$fetch"
+      @previous="$fetch"
+      @input="$fetch"
+    ></v-pagination>
   </div>
-  <KettlyError v-else :message="'Kettly couldn\'t find exercises'" />
 </template>
 
 <script lang="ts">
@@ -29,12 +38,18 @@ import ExercisesListItem from "./ExerciseListItem.vue";
   fetchOnServer: false,
 })
 export default class ExercisesList extends Vue {
+  private page: number = 1;
+
   async fetch() {
-    await getModule(ExerciseStore, this.$store).fetchExercises();
+    await getModule(ExerciseStore, this.$store).fetchExercises(this.page - 1);
   }
 
   get exercises() {
     return getModule(ExerciseStore, this.$store).exercises;
+  }
+
+  get length() {
+    return getModule(ExerciseStore, this.$store).pages;
   }
 }
 </script>

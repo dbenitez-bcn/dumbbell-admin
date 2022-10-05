@@ -16,10 +16,16 @@ export default class ExerciseStore extends VuexModule {
     @lazyInject(SYMBOLS.ExerciseRepository) repository!: IExerciseRepository
 
     private list: Exercise[] = [];
+    private pagesCount: number = 1;
 
     @Mutation
     private setExercises(exercises: Exercise[]) {
         this.list = exercises;
+    }
+
+    @Mutation
+    private setPagesCount(pagesCount: number) {
+        this.pagesCount = pagesCount;
     }
 
     @Mutation
@@ -33,8 +39,10 @@ export default class ExerciseStore extends VuexModule {
     }
 
     @Action({ rawError: true })
-    async fetchExercises() {
-        this.setExercises(await this.repository.getAll());
+    async fetchExercises(page: number) {
+        const exercisePage = await this.repository.getAll(page);
+        this.setExercises(exercisePage.exercises);
+        this.setPagesCount(exercisePage.pagesCount);
     }
 
     @Action({ rawError: true })
@@ -60,5 +68,9 @@ export default class ExerciseStore extends VuexModule {
 
     get exercises(): ExerciseVM[] {
         return this.list.map(exercise => exercise.toVM());
+    }
+
+    get pages(): number {
+        return this.pagesCount;
     }
 }

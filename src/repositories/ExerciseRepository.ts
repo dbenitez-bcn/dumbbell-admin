@@ -2,6 +2,7 @@ import { NuxtAxiosInstance } from "@nuxtjs/axios";
 import { inject, injectable } from "inversify";
 import { SYMBOLS } from "~/core/SYMBOLS";
 import Exercise from "~/domain/models/Exercise";
+import ExercisesPageDTO from "~/domain/types/ExercisesPageDTO";
 import IExerciseRepository from "./types/IExerciseRepository";
 
 @injectable()
@@ -10,8 +11,12 @@ export default class ExerciseRepository implements IExerciseRepository {
         @inject(SYMBOLS.NuxtAxiosInstance) private axios: NuxtAxiosInstance
     ) { }
 
-    async getAll(): Promise<Exercise[]> {
-        return await this.axios.$get("/exercise").then(response => response.map(this.toExercise));
+    async getAll(page: number): Promise<ExercisesPageDTO> {
+        const response = await this.axios.$get(`/exercise?page=${page}`);
+        return {
+            exercises: response.exercises.map(this.toExercise),
+            pagesCount: response.pagesCount
+        }
     }
 
     async getById(id: number): Promise<Exercise> {

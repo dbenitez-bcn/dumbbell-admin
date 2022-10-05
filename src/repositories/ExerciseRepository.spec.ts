@@ -21,18 +21,22 @@ describe("Exercise repository", () => {
 
     it("Should return all exercises", async () => {
         const expected = [FIRST_EXERCISE, new Exercise(2, "second", "exercise", 4)];
-        axios.$get.mockResolvedValue([
-            FIRST_EXERCISE_DATA, {
-                name: "second",
-                description: "exercise",
-                difficulty: 4,
-                id: 2
-            }])
+        axios.$get.mockResolvedValue({
+            exercises: [
+                FIRST_EXERCISE_DATA, {
+                    name: "second",
+                    description: "exercise",
+                    difficulty: 4,
+                    id: 2
+                }],
+            pagesCount: 1
+        })
 
-        const got = await sut.getAll();
+        const got = await sut.getAll(1);
 
-        expect(got).toStrictEqual(expected);
-        expect(axios.$get).toBeCalledWith("/exercise")
+        expect(got.exercises).toStrictEqual(expected);
+        expect(got.pagesCount).toStrictEqual(1);
+        expect(axios.$get).toBeCalledWith("/exercise?page=1")
     })
 
     it("Should return an exercise", async () => {

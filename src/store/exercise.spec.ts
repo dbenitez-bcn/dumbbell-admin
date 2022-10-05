@@ -38,13 +38,16 @@ describe("Exercise store", () => {
     })
 
     it("Should fetch all exercises", async () => {
-        repository.getAll.mockResolvedValue([new Exercise(1, "name", "description", 8)]);
-        await sut.fetchExercises();
+        repository.getAll.mockResolvedValue({
+            exercises: [new Exercise(1, "name", "description", 8)],
+            pagesCount: 1
+        });
 
-        const got = sut.exercises;
+        await sut.fetchExercises(1);
 
-        expect(got).toStrictEqual([new ExerciseVM(1, "name", "description", 8)]);
-        expect(repository.getAll).toBeCalled();
+        expect(sut.exercises).toStrictEqual([new ExerciseVM(1, "name", "description", 8)]);
+        expect(sut.pages).toStrictEqual(1);
+        expect(repository.getAll).toBeCalledWith(1);
     })
 
     describe("get one by id", () => {
@@ -85,8 +88,11 @@ describe("Exercise store", () => {
 
     describe("delete", () => {
         beforeEach(async () => {
-            repository.getAll.mockResolvedValue([AN_EXERCISE]);
-            await sut.fetchExercises();
+            repository.getAll.mockResolvedValue({
+                    exercises: [AN_EXERCISE],
+                    pagesCount: 1
+                });
+            await sut.fetchExercises(1);
         })
 
         it("should delete an exercise", async () => {
