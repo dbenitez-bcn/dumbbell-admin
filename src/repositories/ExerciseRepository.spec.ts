@@ -36,7 +36,7 @@ describe("Exercise repository", () => {
 
         expect(got.exercises).toStrictEqual(expected);
         expect(got.pagesCount).toStrictEqual(1);
-        expect(axios.$get).toBeCalledWith("/exercise?page=1")
+        expect(axios.$get).toBeCalledWith("/exercises?page=1")
     })
 
     it("Should return an exercise", async () => {
@@ -44,7 +44,7 @@ describe("Exercise repository", () => {
 
         const got = await sut.getById(1);
 
-        expect(axios.$get).toBeCalledWith("/exercise/1");
+        expect(axios.$get).toBeCalledWith("/exercises/1");
         expect(got).toStrictEqual(FIRST_EXERCISE)
     })
 
@@ -53,19 +53,19 @@ describe("Exercise repository", () => {
 
         const got = await sut.create("name", "description", 5);
 
-        expect(axios.$post).toBeCalledWith("/exercise", { name: "name", description: "description", difficulty: 5 });
+        expect(axios.$post).toBeCalledWith("/exercises", { name: "name", description: "description", difficulty: 5 });
         expect(got).toStrictEqual(FIRST_EXERCISE);
     })
 
     it("should update an exercise", async () => {
         await sut.update(1, "name", "description", 5);
 
-        expect(axios.$put).toBeCalledWith("/exercise/1", { name: "name", description: "description", difficulty: 5 });
+        expect(axios.$put).toBeCalledWith("/exercises/1", { name: "name", description: "description", difficulty: 5 });
     })
 
     it("Should delete an exercise", async () => {
         await sut.delete(1);
 
-        expect(axios.$delete).toBeCalledWith("/exercise/1");
+        expect(axios.$delete).toBeCalledWith("/exercises/1");
     })
 })

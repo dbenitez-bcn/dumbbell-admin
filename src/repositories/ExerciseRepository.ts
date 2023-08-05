@@ -12,7 +12,7 @@ export default class ExerciseRepository implements IExerciseRepository {
     ) { }
 
     async getAll(page: number): Promise<ExercisesPageDTO> {
-        const response = await this.axios.$get(`/exercise?page=${page}`);
+        const response = await this.axios.$get(`/exercises?page=${page}`);
         return {
             exercises: response.exercises.map(this.toExercise),
             pagesCount: response.pagesCount
@@ -20,21 +20,21 @@ export default class ExerciseRepository implements IExerciseRepository {
     }
 
     async getById(id: number): Promise<Exercise> {
-        return await this.axios.$get(`/exercise/${id}`).then(this.toExercise);
+        return await this.axios.$get(`/exercises/${id}`).then(this.toExercise);
     }
 
     async create(name: string, description: string, difficulty: number): Promise<Exercise> {
         return await this.axios
-            .$post("/exercise", { name, description, difficulty })
+            .$post("/exercises", { name, description, difficulty })
             .then(this.toExercise);
     }
 
     async update(id: number, name: string, description: string, difficulty: number) {
-        this.axios.$put(`/exercise/${id}`, { name, description, difficulty });
+        this.axios.$put(`/exercises/${id}`, { name, description, difficulty });
     }
 
     async delete(id: number) {
-        await this.axios.$delete(`/exercise/${id}`);
+        await this.axios.$delete(`/exercises/${id}`);
     }
 
     private toExercise(exercise: any): Exercise {
